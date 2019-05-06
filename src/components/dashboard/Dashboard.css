@@ -1,0 +1,17 @@
+.dashboard {
+  display: grid;
+  grid-template-columns: 1fr 2fr;
+  grid-gap: 2%;
+}
+
+.leftPanel {
+  grid-column: 1 / 2;
+  height: 100vh;
+  background-color: yellow;
+}
+
+.rightPanel {
+  grid-column: 2 / 4;
+  height: 100vh;
+  background-color: green;
+}
