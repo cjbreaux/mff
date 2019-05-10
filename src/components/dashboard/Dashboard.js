@@ -1,12 +1,13 @@
 import React, { Component} from 'react';
 import './Dashboard.css';
 import {connect} from 'react-redux';
+import {firestoreConnect} from 'react-redux-firebase';
+import {compose} from 'redux';
 
 import EntryList from './../entries/EntryList';
 
 class Dashboard extends Component {
   render() {
-    console.log(this.props);
     const {entries} = this.props;
     return (
       <div className='dashboard'>
@@ -20,9 +21,15 @@ class Dashboard extends Component {
 }
 
 const mapStateToProps = state => {
+  console.log(state);
   return {
     entries: state.entry.entries
   }
 }
 
-export default connect(mapStateToProps)(Dashboard);
+export default compose(
+  connect(mapStateToProps),
+  firestoreConnect([
+    {collection: 'entries'}
+  ])
+)(Dashboard);

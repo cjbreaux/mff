@@ -1,0 +1,2 @@
+export const CREATE_ENTRY = 'CREATE_ENTRY';
+export const CREATE_ENTRY_ERROR= 'CREATE_ENTRY_ERROR';

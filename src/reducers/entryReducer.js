@@ -1,12 +1,17 @@
 import constants from './../constants';
-const {initialState} = constants;
+const {initialState, type} = constants;
 
 const entryReducer = (state = initialState, action) => {
   switch(action.type) {
-    case 'CREATE_ENTRY':
-    console.log('created entry', action.entry)
+    case type.CREATE_ENTRY:
+      console.log('created entry', action.entry);
+      return state;
+    case type.CREATE_ENTRY_ERROR:
+      console.log('create entry error', action.err)
+      return state;
+    default:
+      return state;
   }
-  return state;
 }
 
 export default entryReducer;
