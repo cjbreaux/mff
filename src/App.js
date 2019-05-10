@@ -6,6 +6,7 @@ import Dashboard from './components/dashboard/Dashboard';
 import Navbar from './components/nav/Navbar';
 import EntryDetails from './components/entries/EntryDetails';
 import SignIn from './components/auth/SignIn';
+import SignUp from './components/auth/SignUp';
 
 
 class App extends Component {
@@ -18,6 +19,7 @@ class App extends Component {
             <Route exact path='/' component={Dashboard} />
             <Route path='/entry/:id' component={EntryDetails} />
             <Route path='/signin' component={SignIn} />
+            <Route path='/signup' component={SignUp} />
           </Switch>
         </div>
       </BrowserRouter>

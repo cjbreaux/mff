@@ -8,6 +8,7 @@ function SignIn() {
     e.preventDefault();
     console.log('submitted')
     console.log(_email.value, _password.value)
+    //run fb authentication with credentials
   }
   return(
     <div>
