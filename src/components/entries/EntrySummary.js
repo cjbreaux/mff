@@ -1,11 +1,12 @@
 import React from 'react';
 
-function EntrySummary() {
+function EntrySummary({entry}) {
+  console.log(entry);
   return(
     <div className='listCard'>
-      <h2>Title</h2>
-      <p>Location Name</p>
-      <p>September 9, 2019</p>
+      <h2>{entry.entryName}</h2>
+      <p>{entry.notes}</p>
+      <p>{entry.date}</p>
     </div>
   );
 }
