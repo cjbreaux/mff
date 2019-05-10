@@ -4,9 +4,8 @@ import { NavLink } from 'react-router-dom';
 function SignedInLinks() {
   return(
     <div>
-      <NavLink to='/'>New Entry</NavLink>
-      <NavLink to='/'>Sign Out</NavLink>
-      <NavLink to='/'>Home</NavLink>
+      <NavLink to='/newentry'>New Entry</NavLink>
+      <NavLink to='/signout'>Sign Out</NavLink>
     </div>
   );
 }

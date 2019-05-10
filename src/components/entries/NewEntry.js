@@ -1,5 +1,7 @@
 import React from 'react';
 
+//trying out fieldset instead of regular div, more semantic but adds styling
+
 
 function NewEntry() {
   let _entryName;
@@ -16,7 +18,7 @@ function NewEntry() {
     <div>
       <form onSubmit={handleSubmit}>
         <h5> New Entry </h5>
-        <div className='flex'>
+        <fieldset className='flex'>
           <div>
             <label htmlFor='entryName'>Entry Name</label>
             <input
@@ -47,7 +49,7 @@ function NewEntry() {
           <div>
             <button type='submit'>Add New Entry</button>
           </div>
-        </div>
+        </fieldset>
       </form>
     </div>
   );
