@@ -1,6 +1,7 @@
-const initState = {test: 'working'};
+import constants from './../constants';
+const {initialState} = constants;
 
-const entryReducer = (state = initState, action) => {
+const entryReducer = (state = initialState, action) => {
   return state;
 }
 
