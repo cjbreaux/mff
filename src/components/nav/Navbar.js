@@ -2,8 +2,8 @@ import React from 'react';
 import './Navbar.scss'
 import { Link } from 'react-router-dom';
 
-import SignedInLinks from './../auth/SignedInLinks';
-import SignedOutLinks from './../auth/SignedOutLinks';
+import SignedInLinks from './../links/SignedInLinks';
+import SignedOutLinks from './../links/SignedOutLinks';
 
 function Navbar() {
   return (
