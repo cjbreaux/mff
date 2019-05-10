@@ -1,7 +1,6 @@
 import React from 'react';
 
 function EntrySummary({entry}) {
-  console.log(entry);
   return(
     <div className='listCard'>
       <h2>{entry.entryName}</h2>
