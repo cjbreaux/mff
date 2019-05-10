@@ -1,9 +1,11 @@
 import React from 'react';
+import {connect} from 'react-redux';
+import {createEntry} from './../../actions/entryActions';
 
 //trying out fieldset instead of regular div, more semantic but adds styling
 
 
-function NewEntry() {
+function NewEntry({createEntry}) {
   let _entryName;
   let _mushroom;
   let _qty;
@@ -13,6 +15,7 @@ function NewEntry() {
     console.log('submitted')
     console.log(_entryName.value, _mushroom.value, _qty.value, _notes.value)
     //run fb authentication with credentials
+    createEntry({entryName: _entryName.value, mushroom:_mushroom.value, qty: _qty.value, notes:_notes.value})
   }
   return(
     <div>
@@ -55,4 +58,10 @@ function NewEntry() {
   );
 }
 
-export default NewEntry;
+const mapDispatchToProps = (dispatch) => {
+  return {
+    createEntry: (entry) => dispatch(createEntry(entry))
+  }
+}
+
+export default connect(null, mapDispatchToProps)(NewEntry);
