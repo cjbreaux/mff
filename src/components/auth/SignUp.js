@@ -11,6 +11,10 @@ function SignUp() {
     console.log('submitted')
     console.log(_fname.value, _lname.value, _email.value, _password.value)
     //run fb authentication with credentials
+    // _fname = '';
+    // _lname = '';
+    // _email = '';
+    // _password = '';
   }
   return(
     <div>

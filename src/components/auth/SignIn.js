@@ -9,6 +9,9 @@ function SignIn() {
     console.log('submitted')
     console.log(_email.value, _password.value)
     //run fb authentication with credentials
+
+    // _email = '';
+    // _password = '';
   }
   return(
     <div>

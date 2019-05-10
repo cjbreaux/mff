@@ -7,7 +7,7 @@ import Navbar from './components/nav/Navbar';
 import EntryDetails from './components/entries/EntryDetails';
 import SignIn from './components/auth/SignIn';
 import SignUp from './components/auth/SignUp';
-
+import NewEntry from './components/entries/NewEntry';
 
 class App extends Component {
   render() {
@@ -20,6 +20,7 @@ class App extends Component {
             <Route path='/entry/:id' component={EntryDetails} />
             <Route path='/signin' component={SignIn} />
             <Route path='/signup' component={SignUp} />
+            <Route path='/newentry' component={NewEntry} />
           </Switch>
         </div>
       </BrowserRouter>
