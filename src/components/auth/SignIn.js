@@ -1,7 +1,10 @@
 import React from 'react';
 import './styles.scss';
+import {connect} from 'react-redux';
+import {signIn} from './../../actions/authActions';
 
-function SignIn() {
+function SignIn(props) {
+  const {signIn, authError} = props
   let _email;
   let _password;
   function handleSubmit(e) {
@@ -9,7 +12,7 @@ function SignIn() {
     console.log('submitted')
     console.log(_email.value, _password.value)
     //run fb authentication with credentials
-
+    signIn({email: _email.value, password: _password.value})
     // _email = '';
     // _password = '';
   }
@@ -34,6 +37,9 @@ function SignIn() {
           </div>
           <div>
             <button type='submit'>Login</button>
+            <div>
+              { authError ? <p>{authError}</p> : null}
+            </div>
           </div>
         </div>
       </form>
@@ -41,4 +47,15 @@ function SignIn() {
   );
 }
 
-export default SignIn;
+const mapStateToProps = state => {
+  return {
+    authError: state.auth.authError
+  }
+}
+const mapDispatchToProps = (dispatch) => {
+  return {
+    signIn:(creds) => dispatch(signIn(creds))
+  }
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(SignIn);

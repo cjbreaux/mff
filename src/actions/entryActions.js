@@ -1,3 +1,6 @@
+import constants from './../constants';
+const {type} = constants;
+
 export const createEntry = (entry) => {
   return (dispatch, getState, {getFirebase, getFirestore}) => {
     //make call to firebase
@@ -9,9 +12,9 @@ export const createEntry = (entry) => {
       userId: 12313123,
       createdAt: new Date()
     }).then(()=> {
-      dispatch({type: 'CREATE_ENTRY', entry});
+      dispatch({type: type.CREATE_ENTRY, entry});
     }).catch((err)=> {
-      dispatch({type: 'CREATE_ENTRY_ERROR', err});
+      dispatch({type: type.CREATE_ENTRY_ERROR, err});
     })
   }
 }

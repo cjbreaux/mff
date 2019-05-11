@@ -1,7 +1,27 @@
-const initState = {test: 'working'};
+import constants from './../constants';
+const {type} = constants;
+const initialState = {
+  authError: null
+};
 
-const authReducer = (state = initState, action) => {
-  return state;
+const authReducer = (state = initialState, action) => {
+  switch(action.type){
+    case type.LOGIN_ERROR:
+    return {
+      ...state,
+      authError: 'there was an error'
+    }
+    case type.LOGIN_SUCCESS:
+    return {
+      ...state,
+      authError: null
+    }
+    case type.SIGNOUT_SUCCESS:
+      console.log('signout success')
+      return state;
+    default:
+      return state;
+  }
 }
 
 export default authReducer;

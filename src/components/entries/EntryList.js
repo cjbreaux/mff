@@ -8,8 +8,8 @@ function EntryList({entries}) {
     <div className='listContainer'>
       {entries && entries.map(entry => {
         return(
-          <Link to={'/entry/' + entry.id}>
-            <EntrySummary entry={entry} key={entry.id} />
+          <Link to={'/entry/' + entry.id} key={entry.id}>
+            <EntrySummary entry={entry}  />
           </Link>
         )
       })}
