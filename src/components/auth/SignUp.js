@@ -1,7 +1,10 @@
 import React from 'react';
 import './styles.scss';
+import {connect} from 'react-redux';
+import {Redirect} from 'react-router-dom';
 
-function SignUp() {
+function SignUp(props) {
+  const {auth} = props;
   let _fname;
   let _lname;
   let _email;
@@ -16,6 +19,7 @@ function SignUp() {
     // _email = '';
     // _password = '';
   }
+  if (auth.uid) return <Redirect to='/' />
   return(
     <div>
       <form onSubmit={handleSubmit}>
@@ -58,4 +62,10 @@ function SignUp() {
   );
 }
 
-export default SignUp;
+const mapStateToProps = (state) => {
+  return {
+    auth: state.firebase.auth
+  }
+}
+
+export default connect(mapStateToProps)(SignUp);

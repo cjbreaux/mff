@@ -1,11 +1,12 @@
 import React from 'react';
 import {connect} from 'react-redux';
 import {createEntry} from './../../actions/entryActions';
+import {Redirect} from 'react-router-dom';
 
 //trying out fieldset instead of regular div, more semantic but adds styling
 
 
-function NewEntry({createEntry}) {
+function NewEntry({createEntry, auth}) {
   let _entryName;
   let _mushroom;
   let _qty;
@@ -17,6 +18,7 @@ function NewEntry({createEntry}) {
     //run fb authentication with credentials
     createEntry({entryName: _entryName.value, mushroom:_mushroom.value, qty: _qty.value, notes:_notes.value})
   }
+  if (!auth.uid) return <Redirect to='/signin' />
   return(
     <div>
       <form onSubmit={handleSubmit}>
@@ -58,10 +60,17 @@ function NewEntry({createEntry}) {
   );
 }
 
+const mapStateToProps = (state) => {
+  return {
+    auth: state.firebase.auth
+  }
+}
+
+
 const mapDispatchToProps = (dispatch) => {
   return {
     createEntry: (entry) => dispatch(createEntry(entry))
   }
 }
 
-export default connect(null, mapDispatchToProps)(NewEntry);
+export default connect(mapStateToProps, mapDispatchToProps)(NewEntry);

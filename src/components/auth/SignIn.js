@@ -2,11 +2,14 @@ import React from 'react';
 import './styles.scss';
 import {connect} from 'react-redux';
 import {signIn} from './../../actions/authActions';
+import {Redirect} from 'react-router-dom';
 
 function SignIn(props) {
-  const {signIn, authError} = props
+  const {signIn, authError, auth} = props
   let _email;
   let _password;
+
+  if (auth.uid) return <Redirect to='/' />
   function handleSubmit(e) {
     e.preventDefault();
     console.log('submitted')
@@ -49,7 +52,8 @@ function SignIn(props) {
 
 const mapStateToProps = state => {
   return {
-    authError: state.auth.authError
+    authError: state.auth.authError,
+    auth: state.firebase.auth
   }
 }
 const mapDispatchToProps = (dispatch) => {

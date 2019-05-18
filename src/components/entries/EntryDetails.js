@@ -2,10 +2,11 @@ import React from 'react';
 import {connect} from 'react-redux';
 import {firestoreConnect} from 'react-redux-firebase';
 import {compose} from 'redux';
+import {Redirect} from 'react-router-dom';
 //router automatically passes down some props related to the route info
 function EntryDetails(props) {
-  console.log(props);
-  const {entry} = props;
+  const {entry, auth} = props;
+  if (!auth.uid) return <Redirect to='/signin' />
   if (entry) {
     return (
       <div>
@@ -33,7 +34,8 @@ const mapStateToProps = (state, ownProps) => {
   const entries = state.firestore.data.entries;
   const entry = entries ? entries[id] : null;
   return {
-    entry
+    entry,
+    auth: state.firebase.auth
   }
 }
 
