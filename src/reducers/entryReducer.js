@@ -1,7 +1,7 @@
 import constants from './../constants';
 const {initialState, type} = constants;
 
-const entryReducer = (state = initialState, action) => {
+const entryReducer = (state = {}, action) => {
   switch(action.type) {
     case type.CREATE_ENTRY:
       console.log('created entry', action.entry);
