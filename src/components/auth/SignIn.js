@@ -12,9 +12,6 @@ function SignIn(props) {
   if (auth.uid) return <Redirect to='/' />
   function handleSubmit(e) {
     e.preventDefault();
-    console.log('submitted')
-    console.log(_email.value, _password.value)
-    //run fb authentication with credentials
     signIn({email: _email.value, password: _password.value})
     // _email = '';
     // _password = '';

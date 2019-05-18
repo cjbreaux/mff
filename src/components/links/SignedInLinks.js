@@ -7,7 +7,7 @@ function SignedInLinks(props) {
   return(
     <div>
       <NavLink to='/newentry'>New Entry</NavLink>
-      <a onClick={props.signOut}>Log Out</a>
+      <p onClick={props.signOut}>Log Out</p>
     </div>
   );
 }

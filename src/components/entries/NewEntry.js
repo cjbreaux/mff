@@ -6,17 +6,15 @@ import {Redirect} from 'react-router-dom';
 //trying out fieldset instead of regular div, more semantic but adds styling
 
 
-function NewEntry({createEntry, auth}) {
+function NewEntry({createEntry, auth, history}) {
   let _entryName;
   let _mushroom;
   let _qty;
   let _notes;
   function handleSubmit(e) {
     e.preventDefault();
-    console.log('submitted')
-    console.log(_entryName.value, _mushroom.value, _qty.value, _notes.value)
-    //run fb authentication with credentials
-    createEntry({entryName: _entryName.value, mushroom:_mushroom.value, qty: _qty.value, notes:_notes.value})
+    createEntry({entryName: _entryName.value, mushroom:_mushroom.value, qty: _qty.value, notes:_notes.value});
+    history.push('/');
   }
   if (!auth.uid) return <Redirect to='/signin' />
   return(
