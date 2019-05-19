@@ -3,26 +3,29 @@ import './Entries.css';
 import EntrySummary from './EntrySummary';
 import {Link} from 'react-router-dom';
 
+//flashing incorrect text in bar on new user creation
+
 function EntryList({entries, auth}) {
   console.log(entries)
   const uid = auth.uid;
-  // let userEntry;
-  // if (entries) {
-  //    userEntry = entries.find(e => e.id === uid);
-  // }
-  //this is a workaround to find a specific users collection of entries
 
-  return(
-    <div className='listContainer'>
+  if (entries) {
+    if (entries.length === 0) {
+      return <div className='listContainer'>no entries</div>
+    } else {
+      return <div className='listContainer'>
       {entries && entries[0].entries.map((entry, index) => {
         return(
           <Link to={'/entry/' + entry.userId} key={index}>
-            <EntrySummary entry={entry}  />
+          <EntrySummary entry={entry}  />
           </Link>
         )
       })}
-    </div>
-  );
+      </div>
+    }
+  } else {
+    return <p> ...loading </p>
+  }
 }
 
 export default EntryList;

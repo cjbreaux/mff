@@ -32,3 +32,5 @@ export const createEntry = (entry) => {
     })
   }
 }
+
+//try setting merge to true instead of relying on the catch
