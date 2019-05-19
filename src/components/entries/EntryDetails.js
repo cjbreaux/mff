@@ -12,7 +12,6 @@ function EntryDetails(props) {
     return (
       <div>
       <h1>{entry.entryName}</h1>
-      <p>{moment(entry.createdAt.toDate()).calendar()}</p>
       <p>{entry.mushroom} - {entry.qty}</p>
       <p>{entry.notes}</p>
 
@@ -46,3 +45,16 @@ export default compose(
     {collection: 'entries'}
   ])
 )(EntryDetails);
+
+
+
+
+
+
+
+
+
+
+
+
+// <p>{moment(entry.createdAt.toDate()).calendar()}</p>

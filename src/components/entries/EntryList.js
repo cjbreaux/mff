@@ -6,9 +6,9 @@ import {Link} from 'react-router-dom';
 function EntryList({entries}) {
   return(
     <div className='listContainer'>
-      {entries && entries.map(entry => {
+      {entries && entries[0].entries.map((entry, index) => {
         return(
-          <Link to={'/entry/' + entry.id} key={entry.id}>
+          <Link to={'/entry/' + entry.userId} key={index}>
             <EntrySummary entry={entry}  />
           </Link>
         )
