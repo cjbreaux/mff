@@ -13,8 +13,6 @@ import EntryList from './../entries/EntryList';
 class Dashboard extends Component {
   render() {
     const {entries, auth} = this.props;
-    console.log(entries);
-    console.log(auth.uid);
     if (!auth.uid) return <Redirect to='/signin' />
 
     return (
@@ -35,11 +33,16 @@ const mapStateToProps = state => {
   }
 }
 
+
+
 //would like a way to pass in doc: `${auth.uid}` or equivalent to only pull the users doc instead of the entire list
 
 export default compose(
-  firestoreConnect( [
-    {collection: 'entries'}
-  ]),
   connect(mapStateToProps),
+  firestoreConnect(props => {
+    console.log(props)
+    return [
+      {collection: 'entries', doc: props.auth.uid}
+    ]
+  }),
 )(Dashboard);
