@@ -7,9 +7,11 @@ function EntrySummary({entry}) {
     <div className='listCard'>
       <h2>{entry.entryName}</h2>
       <p>{entry.notes}</p>
-      <p>{moment(entry.createdAt.toDate()).calendar()}</p>
     </div>
   );
 }
 
 export default EntrySummary;
+
+
+// <p>{moment(entry.createdAt.toDate()).calendar()}</p>
