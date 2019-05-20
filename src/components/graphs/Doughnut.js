@@ -19,14 +19,13 @@ export default createReactClass({
       options: {
         plugins: {
           colorschemes: {
-            scheme: 'tableau.Tableau20'
+            scheme: 'brewer.BrBG11'
           }
         }
       }
     };
     return (
       <div>
-        <h2>Doughnut Example</h2>
         <Doughnut data={data} />
       </div>
     );
