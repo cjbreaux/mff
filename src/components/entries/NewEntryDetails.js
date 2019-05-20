@@ -16,11 +16,10 @@ function NewEntryDetails({entries,currentlySelectedEntry}) {
     {entryToDisplay ? <p>{entryToDisplay.qty}</p> : null}
     {entryToDisplay ? <p>{entryToDisplay.notes}</p> : null}
   </div>
-} else {
-  return <p> ...loading </p>
+  } else {
+    return <p> ...loading </p>
+  }
 }
-
-
 
 const mapStateToProps = state => {
   console.log(state)
