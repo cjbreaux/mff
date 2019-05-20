@@ -9,6 +9,10 @@ import SignIn from './components/auth/SignIn';
 import SignUp from './components/auth/SignUp';
 import NewEntry from './components/entries/NewEntry';
 
+import DynamicForm from './components/entries/DynamicForm';
+
+
+
 class App extends Component {
   render() {
     return (
@@ -16,7 +20,7 @@ class App extends Component {
         <div className="test">
           <Navbar />
           <Switch>
-            <Route exact path='/' component={Dashboard} />
+            <Route exact path='/' component={DynamicForm} />
             <Route path='/entry/:id' component={EntryDetails} />
             <Route path='/signin' component={SignIn} />
             <Route path='/signup' component={SignUp} />
