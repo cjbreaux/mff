@@ -7,7 +7,7 @@ class NewEntry extends React.Component {
     super();
     this.state = {
       specimenName: '',
-      specimens: [{name: ''}]
+      specimens: [{name: '', qty: ''}]
     };
   }
 
@@ -31,9 +31,18 @@ class NewEntry extends React.Component {
     this.setState({specimens: newSpecimen})
   }
 
+  handleSpecimenQty = index => e => {
+    const newSpecimen =
+    this.state.specimens.map((specimen, pos) => {
+      if (index !== pos) return specimen;
+      return {...specimen, qty: e.target.value}
+    });
+    this.setState({specimens: newSpecimen})
+  }
+
   handleAddSpecimen = () => {
     this.setState({
-      specimens: this.state.specimens.concat([{name: ''}])
+      specimens: this.state.specimens.concat([{name: '', qty: ''}])
     });
   }
 
@@ -57,15 +66,13 @@ class NewEntry extends React.Component {
                   type='text'
                   value={specimen.name}
                   onChange={this.handleSpecimenNameChange(index)} />
+                <label htmlFor='qty'>Qty</label>
+                <input
+                  type='number'
+                  value={specimen.qty}
+                  onChange={this.handleSpecimenQty(index)} />
                 </div>
               ))}
-            <div>
-              <label htmlFor='qty'>Quantity</label>
-              <input
-                type='number'
-                id='qty'
-                onChange={this.handleChange} />
-            </div>
             <div>
               <label htmlFor='notes'>Notes</label>
               <textarea
