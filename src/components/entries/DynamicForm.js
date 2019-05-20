@@ -1,19 +1,23 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import { createEntry } from './../../actions/entryActions';
+import {Redirect} from 'react-router-dom';
 
 class NewEntry extends React.Component {
+
   constructor() {
     super();
     this.state = {
-      specimenName: '',
       specimens: [{name: '', qty: ''}]
     };
   }
 
   handleSubmit = e => {
+    const {createEntry, history} = this.props;
     e.preventDefault();
-    console.log(this.state)
+    console.log(this.state);
+    createEntry(this.state);
+    history.push('/');
   }
 
   handleChange = e => {
@@ -46,6 +50,12 @@ class NewEntry extends React.Component {
     });
   }
 
+  handleRemoveSpecimen = index => () => {
+    this.setState({
+      specimens: this.state.specimens.filter((s, pos) => index !== pos)
+    });
+  }
+
   render() {
     return(
       <div>
@@ -71,6 +81,10 @@ class NewEntry extends React.Component {
                   type='number'
                   value={specimen.qty}
                   onChange={this.handleSpecimenQty(index)} />
+                <button
+                  type='button'
+                  onClick={this.handleRemoveSpecimen(index)} >
+                  X </button>
                 </div>
               ))}
             <div>
@@ -92,4 +106,10 @@ class NewEntry extends React.Component {
   }
 }
 
-export default connect()(NewEntry);
+const mapDispatchToProps = (dispatch) => {
+  return {
+    createEntry: (entry) => dispatch(createEntry(entry))
+  }
+}
+
+export default connect(null, mapDispatchToProps)(NewEntry);

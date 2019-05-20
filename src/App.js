@@ -20,11 +20,11 @@ class App extends Component {
         <div className="test">
           <Navbar />
           <Switch>
-            <Route exact path='/' component={DynamicForm} />
+            <Route exact path='/' component={Dashboard} />
             <Route path='/entry/:id' component={EntryDetails} />
             <Route path='/signin' component={SignIn} />
             <Route path='/signup' component={SignUp} />
-            <Route path='/newentry' component={NewEntry} />
+            <Route path='/newentry' component={DynamicForm} />
           </Switch>
         </div>
       </BrowserRouter>
