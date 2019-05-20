@@ -15,8 +15,9 @@ function NewEntryDetails({entries,currentlySelectedEntry}) {
   return <div>
     {entryToDisplay ? <h1>{entryToDisplay.entryName}</h1> : <h1>Select an Entry</h1>}
     {entryToDisplay ? <p>{moment(entryToDisplay.createdAt.toDate()).calendar()}</p> : null}
-    {entryToDisplay ? <p>{entryToDisplay.mushroom}</p> : null}
-    {entryToDisplay ? <p>{entryToDisplay.qty}</p> : null}
+    {entryToDisplay ? <div>{entryToDisplay.specimens.map((specimen, index) => (
+      <p key={index}>{specimen.name} - {specimen.qty}</p>
+    ))}</div> : null}
     {entryToDisplay ? <p>{entryToDisplay.notes}</p> : null}
   </div>
   } else {
