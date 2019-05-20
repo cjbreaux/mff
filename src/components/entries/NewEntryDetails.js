@@ -1,6 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import moment from 'moment';
+import DoughnutExample from './../graphs/Doughnut';
 
 //refactor later to show a default selection
 
@@ -19,6 +20,7 @@ function NewEntryDetails({entries,currentlySelectedEntry}) {
       <p key={index}>{specimen.name} - {specimen.qty}</p>
     ))}</div> : null}
     {entryToDisplay ? <p>{entryToDisplay.notes}</p> : null}
+    {entryToDisplay ? <DoughnutExample /> : null}
   </div>
   } else {
     return <p> ...loading </p>
@@ -26,7 +28,6 @@ function NewEntryDetails({entries,currentlySelectedEntry}) {
 }
 
 const mapStateToProps = state => {
-  console.log(state)
   return {
     currentlySelectedEntry: state.entry.currentlySelectedEntry
   }
