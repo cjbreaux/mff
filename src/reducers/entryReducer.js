@@ -1,5 +1,5 @@
 import constants from './../constants';
-const {initialState, type} = constants;
+const { type} = constants;
 
 const entryReducer = (state = {}, action) => {
   switch(action.type) {

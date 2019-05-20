@@ -6,9 +6,6 @@ import EntrySummary from './EntrySummary';
 //flashing incorrect text in bar on new user creation
 
 function EntryList({entries, auth}) {
-  console.log(entries)
-  const uid = auth.uid;
-
   if (entries) {
     if (entries.length === 0) {
       return <div className='listContainer'>no entries</div>

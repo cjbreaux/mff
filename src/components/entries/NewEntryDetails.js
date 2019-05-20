@@ -4,10 +4,9 @@ import { connect } from 'react-redux';
 function NewEntryDetails({entries,currentlySelectedEntry}) {
   let entryToDisplay;
   if (entries) {
-    const found = entries[0].entries.find(function(element) {
+     entries[0].entries.find(function(element) {
     if (element.entryId === currentlySelectedEntry) {
       entryToDisplay = element;
-      console.log(entryToDisplay);
     }
   });
   return <div>
