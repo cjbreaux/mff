@@ -4,14 +4,12 @@ import {connect} from 'react-redux';
 import setSelectedEntry from '../../actions/entryActions';
 
 function EntrySummary({entry,setSelectedEntry}) {
-  function handleClick(uuid) {
-    setSelectedEntry(uuid);
-  }
 
   return(
-    <div className='listCard' onClick={()=>handleClick(entry.entryId)}>
+    <div className='listCard' onClick={()=>setSelectedEntry(entry.entryId)}>
       <h2>{entry.entryName}</h2>
       <p>{entry.notes}</p>
+      <p>{moment(entry.createdAt.toDate()).calendar()}</p>
     </div>
   );
 }
@@ -23,6 +21,3 @@ const mapDispatchToProps = (dispatch) => {
 }
 
 export default connect(null, mapDispatchToProps)(EntrySummary);
-
-
-// <p>{moment(entry.createdAt.toDate()).calendar()}</p>

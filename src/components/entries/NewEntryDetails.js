@@ -1,7 +1,8 @@
 import React from 'react';
 import { connect } from 'react-redux';
+import moment from 'moment';
 
-//refactor later to show a default selection 
+//refactor later to show a default selection
 
 function NewEntryDetails({entries,currentlySelectedEntry}) {
   let entryToDisplay;
@@ -13,6 +14,7 @@ function NewEntryDetails({entries,currentlySelectedEntry}) {
   });
   return <div>
     {entryToDisplay ? <h1>{entryToDisplay.entryName}</h1> : <h1>Select an Entry</h1>}
+    {entryToDisplay ? <p>{moment(entryToDisplay.createdAt.toDate()).calendar()}</p> : null}
     {entryToDisplay ? <p>{entryToDisplay.mushroom}</p> : null}
     {entryToDisplay ? <p>{entryToDisplay.qty}</p> : null}
     {entryToDisplay ? <p>{entryToDisplay.notes}</p> : null}
