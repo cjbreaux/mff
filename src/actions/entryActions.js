@@ -1,6 +1,6 @@
 import constants from './../constants';
 import { v4 } from 'uuid';
-const {type} = constants;
+const { type } = constants;
 
 export const createEntry = (entry) => {
   return (dispatch, getState, {getFirebase, getFirestore}) => {

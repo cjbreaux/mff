@@ -3,9 +3,9 @@ import moment from 'moment'
 import {connect} from 'react-redux';
 import setSelectedEntry from '../../actions/entryActions';
 
-function EntrySummary({entry,dispatch}) {
+function EntrySummary({entry,setSelectedEntry}) {
   function handleClick(uuid) {
-    dispatch(setSelectedEntry(uuid));
+    setSelectedEntry(uuid);
   }
 
   return(
@@ -16,7 +16,13 @@ function EntrySummary({entry,dispatch}) {
   );
 }
 
-export default connect()(EntrySummary);
+const mapDispatchToProps = (dispatch) => {
+  return {
+    setSelectedEntry:(uuid) => dispatch(setSelectedEntry(uuid))
+  }
+}
+
+export default connect(null, mapDispatchToProps)(EntrySummary);
 
 
 // <p>{moment(entry.createdAt.toDate()).calendar()}</p>

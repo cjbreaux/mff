@@ -1,6 +1,8 @@
 import React from 'react';
 import { connect } from 'react-redux';
 
+//refactor later to show a default selection 
+
 function NewEntryDetails({entries,currentlySelectedEntry}) {
   let entryToDisplay;
   if (entries) {
@@ -10,7 +12,7 @@ function NewEntryDetails({entries,currentlySelectedEntry}) {
     }
   });
   return <div>
-    {entryToDisplay ? <h1>{entryToDisplay.entryName}</h1> : null}
+    {entryToDisplay ? <h1>{entryToDisplay.entryName}</h1> : <h1>Select an Entry</h1>}
     {entryToDisplay ? <p>{entryToDisplay.mushroom}</p> : null}
     {entryToDisplay ? <p>{entryToDisplay.qty}</p> : null}
     {entryToDisplay ? <p>{entryToDisplay.notes}</p> : null}
