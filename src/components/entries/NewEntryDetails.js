@@ -7,11 +7,11 @@ import DoughnutExample from './../graphs/Doughnut';
 
 //refactor later to show a default selection
 
-function NewEntryDetails({entries,currentlySelectedEntry}) {
+function NewEntryDetails({entries,currentlySelectedEntry, entry}) {
   let entryToDisplay;
   console.log(entries)
   if (entries) {
-     entries[0].entries.find(function(element) {
+     entries.length > 0 && entries[0].entries.find(function(element) {
     if (element.entryId === currentlySelectedEntry) {
       entryToDisplay = element;
     }
@@ -31,7 +31,6 @@ function NewEntryDetails({entries,currentlySelectedEntry}) {
 const mapStateToProps = state => {
   const entries = state.firestore.data.entries;
   const current = state.entry.currentlySelectedEntry;
-  const entry = entries ? entries[current] : null;
   return {
     currentlySelectedEntry: state.entry.currentlySelectedEntry,
     entries: state.firestore.ordered.entries,
