@@ -1,5 +1,6 @@
 import React from 'react';
 import {Doughnut} from 'react-chartjs-2';
+import 'chartjs-plugin-colorschemes';
 const createReactClass = require('create-react-class');
 
 export default createReactClass({
@@ -9,22 +10,19 @@ export default createReactClass({
 
     const {specimens} = this.props.entryData;
     const data = {
-    	labels: 
+    	labels:
     		specimens.map(specimen => specimen.name)
     	,
     	datasets: [{
-    		data: [300, 50, 100],
-    		backgroundColor: [
-    		'#FF6384',
-    		'#36A2EB',
-    		'#FFCE56'
-    		],
-    		hoverBackgroundColor: [
-    		'#FF6384',
-    		'#36A2EB',
-    		'#FFCE56'
-    		]
-    	}]
+    		data: specimens.map(specimen => specimen.qty),
+    	}],
+      options: {
+        plugins: {
+          colorschemes: {
+            scheme: 'tableau.Tableau20'
+          }
+        }
+      }
     };
     return (
       <div>
