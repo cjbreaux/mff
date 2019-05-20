@@ -6,6 +6,7 @@ import moment from 'moment';
 import DoughnutExample from './../graphs/Doughnut';
 
 //refactor later to show a default selection
+//ideally show the latest entry
 
 function NewEntryDetails({entries,currentlySelectedEntry, entry}) {
   let entryToDisplay;
