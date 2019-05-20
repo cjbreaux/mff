@@ -6,6 +6,7 @@ import {compose} from 'redux';
 import {Redirect} from 'react-router-dom'
 
 import EntryList from './../entries/EntryList';
+import NewEntryDetails from './../entries/NewEntryDetails';
 
 
 
@@ -20,7 +21,9 @@ class Dashboard extends Component {
         <div className='leftPanel'>
           <EntryList entries={entries} auth={auth} />
         </div>
-        <div className='rightPanel'></div>
+        <div className='rightPanel'>
+          <NewEntryDetails entries={entries} />
+        </div>
       </div>
     );
   }

@@ -9,6 +9,11 @@ const entryReducer = (state = {}, action) => {
     case type.CREATE_ENTRY_ERROR:
       console.log('create entry error', action.err)
       return state;
+    case type.SELECTED_ENTRY:
+      const newState = Object.assign({}, state, {
+        currentlySelectedEntry: action.uuid
+      })
+      return newState;
     default:
       return state;
   }

@@ -1,4 +1,5 @@
 import constants from './../constants';
+import { v4 } from 'uuid';
 const {type} = constants;
 
 export const createEntry = (entry) => {
@@ -13,7 +14,7 @@ export const createEntry = (entry) => {
         ...entry,
         firstName: profile.firstName,
         lastName: profile.lastName,
-        userId,
+        entryId: v4(),
         createdAt: new Date()
       })
     }).then(()=> {
@@ -24,7 +25,7 @@ export const createEntry = (entry) => {
           ...entry,
           firstName: profile.firstName,
           lastName: profile.lastName,
-          userId,
+          entryId: v4(),
           createdAt: new Date()
         })
       })
@@ -34,3 +35,10 @@ export const createEntry = (entry) => {
 }
 
 //try setting merge to true instead of relying on the catch
+
+export default function setSelectedEntry(uuid) {
+  return {
+    type: type.SELECTED_ENTRY,
+    uuid
+  }
+}
