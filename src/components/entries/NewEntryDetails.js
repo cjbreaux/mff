@@ -20,7 +20,7 @@ function NewEntryDetails({entries,currentlySelectedEntry}) {
       <p key={index}>{specimen.name} - {specimen.qty}</p>
     ))}</div> : null}
     {entryToDisplay ? <p>{entryToDisplay.notes}</p> : null}
-    {entryToDisplay ? <DoughnutExample /> : null}
+    {entryToDisplay ? <DoughnutExample entryData={entryToDisplay}  /> : null}
   </div>
   } else {
     return <p> ...loading </p>
