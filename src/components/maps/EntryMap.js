@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import Leaflet from 'leaflet';
-import { Map, TileLayer, Marker } from 'react-leaflet';
+import { Map, TileLayer, Marker, Popup } from 'react-leaflet';
 import { connect } from 'react-redux';
 import { getMarkers } from './../../actions/locationActions';
 
@@ -19,7 +19,7 @@ class TestMap extends Component {
   }
 
   render() {
-    const {lat, lng, mapMarkers} = this.props;
+    const {lat, lng, mapMarkers, entry} = this.props;
     if (lat, lng) {
       console.log()
       const position = [lat, lng]
@@ -36,6 +36,9 @@ class TestMap extends Component {
             <Marker
               key={`marker-${index}`}
               position={ position }>
+              <Popup>
+               {entry.specimens[index].name}
+              </Popup>
             </Marker>
           )}
         </Map>
