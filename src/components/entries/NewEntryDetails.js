@@ -17,15 +17,16 @@ function NewEntryDetails({entries,currentlySelectedEntry, entry}) {
       entryToDisplay = element;
     }
   });
-  return <div>
-    {entryToDisplay ? <h1>{entryToDisplay.entryName}</h1> : <h1>Select an Entry</h1>}
-    {entryToDisplay ? <p>{moment(entryToDisplay.createdAt.toDate()).calendar()}</p> : null}
-    {entryToDisplay ? <DoughnutExample entryData={entryToDisplay}  /> : null}
-    {entryToDisplay ? <EntryMap lat={entryToDisplay.lat} lng={entryToDisplay.lng} mapMarkers={entryToDisplay.mapMarkers} entry={entryToDisplay} /> : null}
-    {entryToDisplay ? <h2>Notes</h2> : null}
-    {entryToDisplay ? <p>{entryToDisplay.notes}</p> : null}
-  </div>
-  } else {
+  return (
+    <div>
+      {entryToDisplay ? <h1>{entryToDisplay.entryName}</h1> : <h1>Select an Entry</h1>}
+      {entryToDisplay ? <p>{moment(entryToDisplay.createdAt.toDate()).calendar()}</p> : null}
+      {entryToDisplay ? <DoughnutExample entryData={entryToDisplay}  /> : null}
+      {entryToDisplay ? <EntryMap lat={entryToDisplay.lat} lng={entryToDisplay.lng} mapMarkers={entryToDisplay.mapMarkers} entry={entryToDisplay} /> : null}
+      {entryToDisplay ? <h2>Notes</h2> : null}
+      {entryToDisplay ? <p>{entryToDisplay.notes}</p> : null}
+    </div>
+  )} else {
     return <p> ...loading </p>
   }
 }

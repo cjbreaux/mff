@@ -1,8 +1,7 @@
 import React, { Component } from 'react';
-import Leaflet from 'leaflet';
 import { Map, TileLayer, Marker, Popup } from 'react-leaflet';
 import { connect } from 'react-redux';
-import { getMarkers } from './../../actions/locationActions';
+
 
 // Bug map markers displayed for previously set markers if there arent any recorded
 
@@ -20,7 +19,7 @@ class TestMap extends Component {
 
   render() {
     const {lat, lng, mapMarkers, entry} = this.props;
-    if (lat, lng) {
+    if (lat && lng) {
       console.log()
       const position = [lat, lng]
       return (
@@ -37,7 +36,7 @@ class TestMap extends Component {
               key={`marker-${index}`}
               position={ position }>
               <Popup>
-               {entry.specimens[index].name}
+               {`${entry.specimens[index].name} - ${entry.specimens[index].qty} `}
               </Popup>
             </Marker>
           )}

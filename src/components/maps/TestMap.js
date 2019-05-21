@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
-import Leaflet from 'leaflet';
-import { Map, TileLayer, Marker, Popup } from 'react-leaflet';
+import { Map, TileLayer, Marker } from 'react-leaflet';
 import { connect } from 'react-redux';
 import { getMarkers } from './../../actions/locationActions';
 // import 'leaflet/dist/leaflet.css'; using CDN to correctly display marker
