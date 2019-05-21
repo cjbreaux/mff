@@ -2,7 +2,6 @@ import React from 'react';
 import './styles.scss';
 import { connect } from 'react-redux';
 import { signIn } from './../../actions/authActions';
-// import { getLocation } from './../../actions/locationActions';
 import { Redirect } from 'react-router-dom';
 
 function SignIn(props) {
@@ -14,7 +13,6 @@ function SignIn(props) {
   function handleSubmit(e) {
     e.preventDefault();
     signIn({email: _email.value, password: _password.value});
-    // props.getLocation();
     // _email = '';
     // _password = '';
   }
@@ -57,8 +55,7 @@ const mapStateToProps = state => {
 }
 const mapDispatchToProps = (dispatch) => {
   return {
-    signIn:(creds) => dispatch(signIn(creds)),
-    // getLocation: () => dispatch(getLocation())
+    signIn:(creds) => dispatch(signIn(creds))
   }
 }
 
