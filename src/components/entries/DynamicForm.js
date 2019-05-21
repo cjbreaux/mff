@@ -3,6 +3,8 @@ import { connect } from 'react-redux';
 import { createEntry } from './../../actions/entryActions';
 import { getLocation } from './../../actions/locationActions';
 import { Redirect } from 'react-router-dom';
+import TestMap from './../maps/TestMap';
+
 
 class NewEntry extends React.Component {
 
@@ -103,10 +105,14 @@ class NewEntry extends React.Component {
             </div>
           </fieldset>
         </form>
+        <div className='mapContainer'>
+          <TestMap />
+        </div>
       </div>
     );
   }
 }
+
 
 const mapStateToProps = state => {
   console.log(state);
