@@ -10,7 +10,6 @@ import DoughnutExample from './../graphs/Doughnut';
 
 function NewEntryDetails({entries,currentlySelectedEntry, entry}) {
   let entryToDisplay;
-  console.log(entries)
   if (entries) {
      entries.length > 0 && entries[0].entries.find(function(element) {
     if (element.entryId === currentlySelectedEntry) {

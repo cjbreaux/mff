@@ -9,35 +9,47 @@ import { connect } from 'react-redux';
 
 class TestMap extends Component {
   state = {
-    lat: 45.520,
-    lng: -122.677,
+    // lat: 45.520,
+    // lng: -122.677,
     zoom: 13,
   }
 
   render() {
-    console.log(this.props)
-    const position = [this.state.lat, this.state.lng]
-    return (
-      <Map
-        center={position}
-        style={{ width: '100%', height: '600px' }}
-        zoom={this.state.zoom}>
-        <TileLayer
-          attribution='&amp;copy <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
-          url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
-        />
-        <Marker position={position}>
-          <Popup>
-            A pretty CSS3 popup. <br /> Easily customizable.
-          </Popup>
-        </Marker>
-      </Map>
-    )
+    console.log(typeof this.props.lat)
+    // const position = [this.state.lat, this.state.lng]
+    if (this.props.lat && this.props.lng) {
+      const position = [this.props.lat, this.props.lng]
+      return (
+        <Map
+          center={position}
+          style={{ width: '100%', height: '600px' }}
+          zoom={this.state.zoom}>
+          <TileLayer
+            attribution='&amp;copy <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
+            url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
+            />
+          <Marker position={position}>
+            <Popup>
+              A pretty CSS3 popup. <br /> Easily customizable.
+            </Popup>
+          </Marker>
+        </Map>
+      )
+    } else {
+      return (
+        <p>...loading</p>
+      )
+    }
   }
 }
 
 
+const mapStateToProps = state => {
+  return {
+    lat: state.location.latitude,
+    lng: state.location.longitude
+  };
+}
 
 
-
-export default connect()(TestMap);
+export default connect(mapStateToProps)(TestMap);

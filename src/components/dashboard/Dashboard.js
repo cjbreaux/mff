@@ -43,7 +43,6 @@ const mapStateToProps = state => {
 export default compose(
   connect(mapStateToProps),
   firestoreConnect(props => {
-    console.log(props)
     return [
       {collection: 'entries', doc: props.auth.uid}
     ]

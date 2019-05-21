@@ -10,10 +10,11 @@ import thunk from 'redux-thunk';
 import {reduxFirestore, getFirestore} from 'redux-firestore';
 import {reactReduxFirebase, getFirebase} from 'react-redux-firebase';
 import firebaseConfig from './constants/firebaseConfig';
+import logger from 'redux-logger';
 
 const store = createStore(rootReducer,
   compose(
-    applyMiddleware(thunk.withExtraArgument({getFirebase, getFirestore})),
+    applyMiddleware(logger,thunk.withExtraArgument({getFirebase, getFirestore})),
     reduxFirestore(firebaseConfig),
     reactReduxFirebase(firebaseConfig, {attachAuthIsReady: true, useFirestoreForProfile: true, userProfile: 'users'})
   )
