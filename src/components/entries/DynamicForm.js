@@ -2,24 +2,24 @@ import React from 'react';
 import { connect } from 'react-redux';
 import { createEntry } from './../../actions/entryActions';
 import { getLocation } from './../../actions/locationActions';
-import {Redirect} from 'react-router-dom';
+import { Redirect } from 'react-router-dom';
 
 class NewEntry extends React.Component {
 
-  constructor() {
-    super();
+  constructor(props) {
+    super(props);
+    props.getLocation();
     this.state = {
       specimens: [{name: '', qty: ''}]
     };
   }
 
   handleSubmit = e => {
-    const {createEntry, history, getLocation} = this.props;
+    const {createEntry, history, getLocation, location} = this.props;
     e.preventDefault();
-    console.log(this.state);
-    // createEntry(this.state);
-    getLocation()
-    // history.push('/');
+    console.log(location)
+    createEntry({...this.state, lat: location.latitude, lng: location.longitude});
+    history.push('/');
   }
 
   handleChange = e => {
@@ -59,8 +59,6 @@ class NewEntry extends React.Component {
   }
 
   render() {
-    console.log(this.props);
-    console.log(this.state);
     return(
       <div>
         <form onSubmit={this.handleSubmit}>
@@ -74,7 +72,7 @@ class NewEntry extends React.Component {
                 onChange={this.handleChange} />
             </div>
               {this.state.specimens.map((specimen, index) => (
-                <div>
+                <div key={index}>
                 <label htmlFor='mushroom'>Mushroom</label>
                 <input
                   type='text'
@@ -111,6 +109,7 @@ class NewEntry extends React.Component {
 }
 
 const mapStateToProps = state => {
+  console.log(state);
   return {
     location: state.location
   };
@@ -119,7 +118,7 @@ const mapStateToProps = state => {
 const mapDispatchToProps = (dispatch) => {
   return {
     createEntry: (entry) => dispatch(createEntry(entry)),
-    getLocation: () => dispatch(getLocation())
+    getLocation: () =>dispatch(getLocation())
   }
 }
 

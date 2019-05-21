@@ -7,7 +7,7 @@ import Navbar from './components/nav/Navbar';
 import EntryDetails from './components/entries/EntryDetails';
 import SignIn from './components/auth/SignIn';
 import SignUp from './components/auth/SignUp';
-import NewEntry from './components/entries/NewEntry';
+
 
 import DynamicForm from './components/entries/DynamicForm';
 

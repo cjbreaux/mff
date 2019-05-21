@@ -1,8 +1,9 @@
 import React from 'react';
 import './styles.scss';
-import {connect} from 'react-redux';
-import {signIn} from './../../actions/authActions';
-import {Redirect} from 'react-router-dom';
+import { connect } from 'react-redux';
+import { signIn } from './../../actions/authActions';
+// import { getLocation } from './../../actions/locationActions';
+import { Redirect } from 'react-router-dom';
 
 function SignIn(props) {
   const {signIn, authError, auth} = props
@@ -12,7 +13,8 @@ function SignIn(props) {
   if (auth.uid) return <Redirect to='/' />
   function handleSubmit(e) {
     e.preventDefault();
-    signIn({email: _email.value, password: _password.value})
+    signIn({email: _email.value, password: _password.value});
+    // props.getLocation();
     // _email = '';
     // _password = '';
   }
@@ -55,7 +57,8 @@ const mapStateToProps = state => {
 }
 const mapDispatchToProps = (dispatch) => {
   return {
-    signIn:(creds) => dispatch(signIn(creds))
+    signIn:(creds) => dispatch(signIn(creds)),
+    // getLocation: () => dispatch(getLocation())
   }
 }
 

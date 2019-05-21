@@ -3,7 +3,7 @@ import {connect} from 'react-redux';
 import {firestoreConnect} from 'react-redux-firebase';
 import {compose} from 'redux';
 import {Redirect} from 'react-router-dom';
-import moment from 'moment';
+// import moment from 'moment';
 //router automatically passes down some props related to the route info
 function EntryDetails(props) {
   const {entry, auth} = props;
