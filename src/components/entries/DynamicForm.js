@@ -19,7 +19,11 @@ class NewEntry extends React.Component {
   handleSubmit = e => {
     const {createEntry, history, location, mapMarkers} = this.props;
     e.preventDefault();
-    createEntry({...this.state, lat: location.latitude, lng: location.longitude, mapMarkers});
+    if (Object.keys(mapMarkers).length === 0 && mapMarkers.constructor === Object) {
+      createEntry({...this.state, lat: location.latitude, lng: location.longitude, mapMarkers: []});
+    } else {
+      createEntry({...this.state, lat: location.latitude, lng: location.longitude, mapMarkers });
+    }
     history.push('/');
   }
 

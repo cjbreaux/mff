@@ -4,6 +4,8 @@ import { Map, TileLayer, Marker } from 'react-leaflet';
 import { connect } from 'react-redux';
 import { getMarkers } from './../../actions/locationActions';
 
+// Bug map markers displayed for previously set markers if there arent any recorded
+
 class TestMap extends Component {
   constructor(props) {
     super(props);
@@ -17,24 +19,22 @@ class TestMap extends Component {
   }
 
   render() {
-    const {lat, lng} = this.props;
+    const {lat, lng, mapMarkers} = this.props;
     if (lat, lng) {
-      console.log(lat,lng)
+      console.log()
       const position = [lat, lng]
       return (
         <Map
           center={position}
           style={{ width: '100%', height: '600px' }}
-          onClick={this.addMarker}
           zoom={this.state.zoom}>
           <TileLayer
             attribution='&amp;copy <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
             url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
             />
-          {this.state.markers.map((position, index) =>
+          {mapMarkers.map((position, index) =>
             <Marker
               key={`marker-${index}`}
-              onClick={this.removeMarker(index)}
               position={ position }>
             </Marker>
           )}
