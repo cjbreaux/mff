@@ -23,9 +23,9 @@ class TestMap extends Component {
   }
 
   addMarker = (e) => {
-    const {markers} = this.state
+    const { markers } = this.state
     markers.push(e.latlng);
-    this.setState({markers});
+    this.setState({ markers });
     this.props.getMarkers(this.state.markers);
   }
 
@@ -53,7 +53,7 @@ class TestMap extends Component {
             <Marker
               key={`marker-${index}`}
               onClick={this.removeMarker(index)}
-              position={position}>
+              position={ position }>
             </Marker>
           )}
         </Map>

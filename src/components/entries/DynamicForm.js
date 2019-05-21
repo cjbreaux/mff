@@ -17,11 +17,11 @@ class NewEntry extends React.Component {
   }
 
   handleSubmit = e => {
-    const {createEntry, history, location} = this.props;
+    const {createEntry, history, location, mapMarkers} = this.props;
     e.preventDefault();
-    console.log(location)
-    createEntry({...this.state, lat: location.latitude, lng: location.longitude});
-    history.push('/');
+    const results = mapMarkers.map((mark => {return Object.assign({}, {lat: mark.lat, lng: mark.lng})})); //need to transform this object before I can upload to firebase
+    createEntry({...this.state, lat: location.latitude, lng: location.longitude, mapMarkers: results});
+    // history.push('/');
   }
 
   handleChange = e => {
@@ -117,7 +117,8 @@ class NewEntry extends React.Component {
 const mapStateToProps = state => {
   console.log(state);
   return {
-    location: state.location
+    location: state.location,
+    mapMarkers: state.mapMarkers
   };
 }
 
