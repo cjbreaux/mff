@@ -1,6 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import { createEntry } from './../../actions/entryActions';
+import { getLocation } from './../../actions/locationActions';
 import {Redirect} from 'react-router-dom';
 
 class NewEntry extends React.Component {
@@ -13,11 +14,12 @@ class NewEntry extends React.Component {
   }
 
   handleSubmit = e => {
-    const {createEntry, history} = this.props;
+    const {createEntry, history, getLocation} = this.props;
     e.preventDefault();
     console.log(this.state);
-    createEntry(this.state);
-    history.push('/');
+    // createEntry(this.state);
+    getLocation()
+    // history.push('/');
   }
 
   handleChange = e => {
@@ -57,6 +59,8 @@ class NewEntry extends React.Component {
   }
 
   render() {
+    console.log(this.props);
+    console.log(this.state);
     return(
       <div>
         <form onSubmit={this.handleSubmit}>
@@ -106,10 +110,17 @@ class NewEntry extends React.Component {
   }
 }
 
+const mapStateToProps = state => {
+  return {
+    location: state.location
+  };
+}
+
 const mapDispatchToProps = (dispatch) => {
   return {
-    createEntry: (entry) => dispatch(createEntry(entry))
+    createEntry: (entry) => dispatch(createEntry(entry)),
+    getLocation: () => dispatch(getLocation())
   }
 }
 
-export default connect(null, mapDispatchToProps)(NewEntry);
+export default connect(mapStateToProps, mapDispatchToProps)(NewEntry);

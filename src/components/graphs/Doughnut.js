@@ -16,8 +16,7 @@ export default createReactClass({
     const {specimens} = this.props.entryData;
     const data = {
     	labels:
-    		specimens.map(specimen => specimen.name)
-    	,
+    		specimens.map(specimen => specimen.name),
     	datasets: [{
     		data: specimens.map(specimen => specimen.qty),
     	}],
