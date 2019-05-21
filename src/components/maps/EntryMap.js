@@ -1,12 +1,8 @@
 import React, { Component } from 'react';
 import Leaflet from 'leaflet';
-import { Map, TileLayer, Marker, Popup } from 'react-leaflet';
+import { Map, TileLayer, Marker } from 'react-leaflet';
 import { connect } from 'react-redux';
 import { getMarkers } from './../../actions/locationActions';
-// import 'leaflet/dist/leaflet.css'; using CDN to correctly display marker
-
-
-
 
 class TestMap extends Component {
   constructor(props) {
@@ -20,23 +16,11 @@ class TestMap extends Component {
     }
   }
 
-  addMarker = (e) => {
-    const { markers } = this.state
-    markers.push(e.latlng);
-    this.setState({ markers });
-    this.props.getMarkers(this.state.markers);
-  }
-
-  removeMarker = index => () => {
-    this.setState({
-      markers: this.state.markers.filter((loc, pos) => index !== pos)
-    });
-    this.props.getMarkers(this.state.markers);
-  }
-
   render() {
-    if (this.props.lat && this.props.lng) {
-      const position = [this.props.lat, this.props.lng]
+    const {lat, lng} = this.props;
+    if (lat, lng) {
+      console.log(lat,lng)
+      const position = [lat, lng]
       return (
         <Map
           center={position}
@@ -67,16 +51,11 @@ class TestMap extends Component {
 
 const mapStateToProps = state => {
   return {
-    lat: state.location.latitude,
-    lng: state.location.longitude
+    entries: state.firestore.ordered.entries,
+    auth: state.firebase.auth
   };
 }
 
-const mapDispatchToProps = (dispatch) => {
-  return {
-    getMarkers: (arr) => dispatch(getMarkers(arr))
-  }
-}
 
 
-export default connect(mapStateToProps, mapDispatchToProps)(TestMap);
+export default connect(mapStateToProps)(TestMap);

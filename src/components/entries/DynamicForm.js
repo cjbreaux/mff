@@ -19,9 +19,8 @@ class NewEntry extends React.Component {
   handleSubmit = e => {
     const {createEntry, history, location, mapMarkers} = this.props;
     e.preventDefault();
-    const results = mapMarkers.map((mark => {return Object.assign({}, {lat: mark.lat, lng: mark.lng})})); //need to transform this object before I can upload to firebase
-    createEntry({...this.state, lat: location.latitude, lng: location.longitude, mapMarkers: results});
-    // history.push('/');
+    createEntry({...this.state, lat: location.latitude, lng: location.longitude, mapMarkers});
+    history.push('/');
   }
 
   handleChange = e => {

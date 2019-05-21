@@ -4,6 +4,7 @@ import { compose } from 'redux';
 import { firestoreConnect } from 'react-redux-firebase';
 import moment from 'moment';
 import DoughnutExample from './../graphs/Doughnut';
+import EntryMap from './../maps/EntryMap';
 
 //refactor later to show a default selection
 //ideally show the latest entry
@@ -20,6 +21,7 @@ function NewEntryDetails({entries,currentlySelectedEntry, entry}) {
     {entryToDisplay ? <h1>{entryToDisplay.entryName}</h1> : <h1>Select an Entry</h1>}
     {entryToDisplay ? <p>{moment(entryToDisplay.createdAt.toDate()).calendar()}</p> : null}
     {entryToDisplay ? <DoughnutExample entryData={entryToDisplay}  /> : null}
+    {entryToDisplay ? <EntryMap lat={entryToDisplay.lat} lng={entryToDisplay.lng} /> : null}
     {entryToDisplay ? <h2>Notes</h2> : null}
     {entryToDisplay ? <p>{entryToDisplay.notes}</p> : null}
   </div>
