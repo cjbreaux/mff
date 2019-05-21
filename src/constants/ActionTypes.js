@@ -8,3 +8,4 @@ export const SIGNUP_ERROR = 'SIGNUP_ERROR';
 export const SELECTED_ENTRY = 'SELECTED_ENTRY';
 export const GET_LOCATION = 'GET_LOCATION';
 export const GET_LOCATION_ERROR = 'GET_LOCATION';
+export const GET_MARKERS = 'GET_MARKERS';

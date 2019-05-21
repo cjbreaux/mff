@@ -17,7 +17,7 @@ class NewEntry extends React.Component {
   }
 
   handleSubmit = e => {
-    const {createEntry, history, getLocation, location} = this.props;
+    const {createEntry, history, location} = this.props;
     e.preventDefault();
     console.log(location)
     createEntry({...this.state, lat: location.latitude, lng: location.longitude});

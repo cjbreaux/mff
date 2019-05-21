@@ -15,3 +15,10 @@ export const getLocation = () => {
     })
   }
 };
+
+export const getMarkers = (mapMarkers) => {
+ return {
+   type: type.GET_MARKERS,
+   mapMarkers
+ }
+}

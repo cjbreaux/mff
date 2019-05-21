@@ -29,8 +29,6 @@ function NewEntryDetails({entries,currentlySelectedEntry, entry}) {
 }
 
 const mapStateToProps = state => {
-  const entries = state.firestore.data.entries;
-  const current = state.entry.currentlySelectedEntry;
   return {
     currentlySelectedEntry: state.entry.currentlySelectedEntry,
     entries: state.firestore.ordered.entries,

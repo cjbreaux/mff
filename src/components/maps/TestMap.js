@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import Leaflet from 'leaflet';
 import { Map, TileLayer, Marker, Popup } from 'react-leaflet';
 import { connect } from 'react-redux';
+import { getMarkers } from './../../actions/locationActions';
 // import 'leaflet/dist/leaflet.css'; using CDN to correctly display marker
 
 
@@ -23,14 +24,16 @@ class TestMap extends Component {
 
   addMarker = (e) => {
     const {markers} = this.state
-    markers.push(e.latlng)
-    this.setState({markers})
+    markers.push(e.latlng);
+    this.setState({markers});
+    this.props.getMarkers(this.state.markers);
   }
 
   removeMarker = index => () => {
     this.setState({
       markers: this.state.markers.filter((loc, pos) => index !== pos)
     });
+    this.props.getMarkers(this.state.markers);
   }
 
   render() {
@@ -71,5 +74,11 @@ const mapStateToProps = state => {
   };
 }
 
+const mapDispatchToProps = (dispatch) => {
+  return {
+    getMarkers: (arr) => dispatch(getMarkers(arr))
+  }
+}
 
-export default connect(mapStateToProps)(TestMap);
+
+export default connect(mapStateToProps, mapDispatchToProps)(TestMap);
