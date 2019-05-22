@@ -70,31 +70,31 @@ class NewEntry extends React.Component {
         <form onSubmit={this.handleSubmit}>
           <h1 className='f1'> New Entry </h1>
           <fieldset className='flex'>
-            <div>
+            <div className=' flex flex-column'>
               <label htmlFor='entryName'>Entry Name</label>
               <input
-                className='w-50 br2 h2 ml3'
+                className='w-50 br2 h2'
                 type='text'
                 id='entryName'
                 onChange={this.handleChange} />
               <button
-                className='bg-dark-green h2 br2 b--black fr near-white'
+                className='bg-dark-green h2 br2 b--black near-white'
                 type='button'
                 onClick={this.handleAddSpecimen}>
                 + Mushroom
               </button>
             </div>
+            <label htmlFor='mushroom'>Mushroom</label>
               {this.state.specimens.map((specimen, index) => (
-                <div key={index}>
-                <label htmlFor='mushroom'>Mushroom</label>
+                <div className='flex flex-column' key={index}>
                 <input
-                  className='w-30 br2 h2 ml3'
+                  className='w-30 br2 h2'
                   placeholder='Specimen Name'
                   type='text'
                   value={specimen.name}
                   onChange={this.handleSpecimenNameChange(index)} />
                 <input
-                  className='w-20 br2 h2 ml3'
+                  className='w-20 br2 h2'
                   placeholder='Quantity'
                   type='number'
                   value={specimen.qty}
@@ -106,7 +106,7 @@ class NewEntry extends React.Component {
                   X </button>
                 </div>
               ))}
-            <div>
+            <div className='flex flex-column'>
               <label htmlFor='notes'>Notes</label>
               <textarea
                 className='w-50 br2'
@@ -114,12 +114,17 @@ class NewEntry extends React.Component {
                 onChange={this.handleChange} />
             </div>
             <div>
-              <button type='submit'>Finalize Entry</button>
+
             </div>
           </fieldset>
         </form>
-        <div className='mapContainer'>
+        <div className='mapContainer tc' >
           <TestMap specimens={this.state.specimens}/>
+          <button
+            className='h2 bg-blue br2 mt2'
+            type='submit'>
+            Finalize Entry
+          </button>
         </div>
       </div>
     );
