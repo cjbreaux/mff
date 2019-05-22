@@ -58,8 +58,10 @@ class NewEntry extends React.Component {
 
   handleRemoveSpecimen = index => () => {
     this.setState({
-      specimens: this.state.specimens.filter((s, pos) => index !== pos)
+      specimens: this.state.specimens.filter((s, pos) => index !== pos),
+      mapMarkers: this.props.mapMarkers.filter((s, pos) => index !== pos)
     });
+    console.log(this.props);
   }
 
   render() {
