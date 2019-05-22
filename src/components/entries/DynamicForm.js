@@ -92,8 +92,8 @@ class NewEntry extends React.Component {
                     onChange={this.handleSpecimenNameChange(index)} />
                   <div>
                     <input
-                      className='w-20 br2 h2 mb3'
-                      placeholder='Quantity'
+                      className='w-10 br2 h2 mb3'
+                      placeholder='Qty'
                       type='number'
                       value={specimen.qty}
                       onChange={this.handleSpecimenQty(index)} />
@@ -111,7 +111,7 @@ class NewEntry extends React.Component {
                 className='bg-dark-green h2 br2 b--black near-white w-30 mb2'
                 type='button'
                 onClick={this.handleAddSpecimen}>
-                + Mushroom
+                Add Mushroom
               </button>
               <label htmlFor='notes'>Notes</label>
               <textarea
