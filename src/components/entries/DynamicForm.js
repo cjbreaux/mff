@@ -68,8 +68,8 @@ class NewEntry extends React.Component {
     return(
       <div>
         <form onSubmit={this.handleSubmit}>
-          <h1 className='f1'> New Entry </h1>
-          <fieldset className='flex'>
+          <fieldset className='bg-light-blue bn'>
+            <h1 className='f1'> New Entry </h1>
             <div>
               <label htmlFor='entryName'>Entry Name</label>
               <button

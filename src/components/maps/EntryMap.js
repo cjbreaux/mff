@@ -20,12 +20,12 @@ class TestMap extends Component {
   render() {
     const {lat, lng, mapMarkers, entry} = this.props;
     if (lat && lng) {
-      console.log()
-      const position = [lat, lng]
+      console.log(mapMarkers)
+      const position = [mapMarkers[0].lat, mapMarkers[0].lng]
       return (
         <Map
           center={position}
-          style={{ width: '100%', height: '600px' }}
+          style={{ width: '100%', height: '400px' }}
           zoom={this.state.zoom}>
           <TileLayer
             attribution='&amp;copy <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
