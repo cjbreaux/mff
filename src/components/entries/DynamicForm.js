@@ -108,7 +108,7 @@ class NewEntry extends React.Component {
             </div>
             <div className='flex flex-column'>
               <button
-                className='bg-dark-green h2 br2 b--black near-white w-20 mb2'
+                className='bg-dark-green h2 br2 b--black near-white w-30 mb2'
                 type='button'
                 onClick={this.handleAddSpecimen}>
                 + Mushroom
