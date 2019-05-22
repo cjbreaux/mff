@@ -44,7 +44,7 @@ class TestMap extends Component {
       return (
         <Map
           center={position}
-          style={{ width: '100%', height: '600px' }}
+          style={{ width: '100%', height: '500px' }}
           onClick={this.addMarker}
           zoom={this.state.zoom}>
           <TileLayer

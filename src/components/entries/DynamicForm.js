@@ -84,39 +84,39 @@ class NewEntry extends React.Component {
               type='text'
               id='entryName'
               onChange={this.handleChange} />
-            <label htmlFor='mushroom'>Mushroom</label>
+            <div>
+              <label htmlFor='mushroom'>Mushroom</label>
               {this.state.specimens.map((specimen, index) => (
                 <div className='flex flex-column' key={index}>
-                <input
-                  className='w-30 br2 h2'
-                  placeholder='Specimen Name'
-                  type='text'
-                  value={specimen.name}
-                  onChange={this.handleSpecimenNameChange(index)} />
-                <div>
                   <input
-                    className='w-20 br2 h2 mb3'
-                    placeholder='Quantity'
-                    type='number'
-                    value={specimen.qty}
-                    onChange={this.handleSpecimenQty(index)} />
-                  <button
-                    className='bg-dark-red h2 br2 b--black ml3'
-                    type='button'
-                    onClick={this.handleRemoveSpecimen(index)} >
-                    X </button>
-                </div>
+                    className='w-30 br2 h2'
+                    placeholder='Specimen Name'
+                    type='text'
+                    value={specimen.name}
+                    onChange={this.handleSpecimenNameChange(index)} />
+                  <div>
+                    <input
+                      className='w-20 br2 h2 mb3'
+                      placeholder='Quantity'
+                      type='number'
+                      value={specimen.qty}
+                      onChange={this.handleSpecimenQty(index)} />
+                    <button
+                      className='bg-dark-red h2 br2 b--black ml3'
+                      type='button'
+                      onClick={this.handleRemoveSpecimen(index)} >
+                      X </button>
+                  </div>
                 </div>
               ))}
+            </div>
             <div className='flex flex-column'>
               <label htmlFor='notes'>Notes</label>
               <textarea
                 className='w-50 br2'
+                placeholder='(click on the map to place location markers)'
                 id='notes'
                 onChange={this.handleChange} />
-            </div>
-            <div>
-
             </div>
           </fieldset>
         </form>
