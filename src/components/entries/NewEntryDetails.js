@@ -18,7 +18,7 @@ function NewEntryDetails({entries,currentlySelectedEntry, entry}) {
     }
   });
   return (
-    <div>
+    <div className='ba bw1 br4 mt2 pl2 bg-moon-gray'>
       {entryToDisplay ? <h1>{entryToDisplay.entryName}</h1> : <h1>Select an Entry</h1>}
       {entryToDisplay ? <p>{moment(entryToDisplay.createdAt.toDate()).calendar()}</p> : null}
       {entryToDisplay ? <DoughnutExample entryData={entryToDisplay}  /> : null}

@@ -24,6 +24,7 @@ class TestMap extends Component {
       const position = [mapMarkers[0].lat, mapMarkers[0].lng]
       return (
         <Map
+          className='mt3'
           center={position}
           style={{ width: '100%', height: '400px' }}
           zoom={this.state.zoom}>

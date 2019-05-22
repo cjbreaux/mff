@@ -7,11 +7,9 @@
 .leftPanel {
   grid-column: 1 / 2;
   height: 100vh;
-  background-color: yellow;
 }
 
 .rightPanel {
   grid-column: 2 / 4;
   height: 100vh;
-  background-color: green;
 }
