@@ -17,7 +17,7 @@ function SignIn(props) {
     // _password = '';
   }
   return(
-    <section>
+    <section className='wrapper'>
       <form onSubmit={handleSubmit}>
         <h1 className='f1'> Sign In </h1>
         <div>

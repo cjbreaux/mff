@@ -21,10 +21,10 @@ function SignUp(props) {
   }
   if (auth.uid) return <Redirect to='/' />
   return(
-    <section>
+    <section className='wrapper'>
       <form onSubmit={handleSubmit}>
         <h1 className='f1'> Sign Up </h1>
-        <div className='flex'>
+        <div className='flex flex-column'>
         <div className='flex flex-column'>
           <label htmlFor='fname'>First Name</label>
           <input
