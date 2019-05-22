@@ -20,7 +20,7 @@ function NewEntry({createEntry, auth, history}) {
   return(
     <div>
       <form onSubmit={handleSubmit}>
-        <h5> New Entry </h5>
+        <h1> New Entry </h1>
         <fieldset className='flex'>
           <div>
             <label htmlFor='entryName'>Entry Name</label>

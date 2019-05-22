@@ -68,28 +68,39 @@ class NewEntry extends React.Component {
     return(
       <div>
         <form onSubmit={this.handleSubmit}>
-          <h5> New Entry </h5>
+          <h1 className='f1'> New Entry </h1>
           <fieldset className='flex'>
             <div>
               <label htmlFor='entryName'>Entry Name</label>
               <input
+                className='w-50 br2 h2 ml3'
                 type='text'
                 id='entryName'
                 onChange={this.handleChange} />
+              <button
+                className='bg-dark-green h2 br2 b--black fr near-white'
+                type='button'
+                onClick={this.handleAddSpecimen}>
+                + Mushroom
+              </button>
             </div>
               {this.state.specimens.map((specimen, index) => (
                 <div key={index}>
                 <label htmlFor='mushroom'>Mushroom</label>
                 <input
+                  className='w-30 br2 h2 ml3'
+                  placeholder='Specimen Name'
                   type='text'
                   value={specimen.name}
                   onChange={this.handleSpecimenNameChange(index)} />
-                <label htmlFor='qty'>Qty</label>
                 <input
+                  className='w-20 br2 h2 ml3'
+                  placeholder='Quantity'
                   type='number'
                   value={specimen.qty}
                   onChange={this.handleSpecimenQty(index)} />
                 <button
+                  className='bg-dark-red h2 br2 b--black'
                   type='button'
                   onClick={this.handleRemoveSpecimen(index)} >
                   X </button>
@@ -98,14 +109,12 @@ class NewEntry extends React.Component {
             <div>
               <label htmlFor='notes'>Notes</label>
               <textarea
+                className='w-50 br2'
                 id='notes'
-               onChange={this.handleChange} />
+                onChange={this.handleChange} />
             </div>
             <div>
-              <button type='button' onClick={this.handleAddSpecimen}>
-              Add Another
-              </button>
-              <button type='submit'>Add New Entry</button>
+              <button type='submit'>Finalize Entry</button>
             </div>
           </fieldset>
         </form>
