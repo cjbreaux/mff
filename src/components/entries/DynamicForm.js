@@ -108,7 +108,7 @@ class NewEntry extends React.Component {
           </fieldset>
         </form>
         <div className='mapContainer'>
-          <TestMap />
+          <TestMap specimens={this.state.specimens}/>
         </div>
       </div>
     );

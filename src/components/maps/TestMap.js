@@ -21,9 +21,14 @@ class TestMap extends Component {
 
   addMarker = (e) => {
     const { markers } = this.state
-    markers.push(e.latlng);
-    this.setState({ markers });
-    this.props.getMarkers(this.state.markers);
+    const { specimens } = this.props
+    console.log(markers.length + ' markers')
+    console.log(specimens.length + ' specimens')
+    while(markers.length < specimens.length) {
+      markers.push(e.latlng);
+      this.setState({ markers });
+      this.props.getMarkers(this.state.markers);
+    }
   }
 
   removeMarker = index => () => {
