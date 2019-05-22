@@ -6,10 +6,10 @@ import setSelectedEntry from '../../actions/entryActions';
 function EntrySummary({entry,setSelectedEntry}) {
 
   return(
-    <div className='listCard' onClick={()=>setSelectedEntry(entry.entryId)}>
-      <h2 className='f5'>{entry.entryName}</h2>
+    <div className='listCard bg-lightest-blue ba bw1 b--blue br4 grow shadow-5 ' onClick={()=>setSelectedEntry(entry.entryId)}>
+      <h2 className='f3'>{entry.entryName}</h2>
       <p>{entry.notes}</p>
-      <p>{moment(entry.createdAt.toDate()).calendar()}</p>
+      <p className='i'>{moment(entry.createdAt.toDate()).calendar()}</p>
     </div>
   );
 }
