@@ -2,6 +2,7 @@ import React from 'react';
 import { connect } from 'react-redux';
 import { createEntry } from './../../actions/entryActions';
 import { getLocation } from './../../actions/locationActions';
+import {Redirect} from 'react-router-dom';
 import TestMap from './../maps/TestMap';
 
 
@@ -65,8 +66,9 @@ class NewEntry extends React.Component {
   }
 
   render() {
+    if (!this.props.auth.uid) return <Redirect to='/signin' />
     return(
-      <div>
+      <section>
         <form onSubmit={this.handleSubmit}>
           <fieldset className='bg-light-blue bn'>
             <h1 className='f1'> New Entry </h1>
@@ -128,7 +130,7 @@ class NewEntry extends React.Component {
             Finalize Entry
           </button>
         </div>
-      </div>
+      </section>
     );
   }
 }
@@ -138,7 +140,8 @@ const mapStateToProps = state => {
   console.log(state);
   return {
     location: state.location,
-    mapMarkers: state.mapMarkers
+    mapMarkers: state.mapMarkers,
+    auth: state.firebase.auth
   };
 }
 

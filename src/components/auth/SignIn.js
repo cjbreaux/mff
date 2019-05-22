@@ -17,33 +17,35 @@ function SignIn(props) {
     // _password = '';
   }
   return(
-    <div>
+    <section>
       <form onSubmit={handleSubmit}>
-        <h5> Sign In </h5>
-        <div className='flex'>
-          <div>
+        <h1 className='f1'> Sign In </h1>
+        <div>
+          <div className='flex flex-column'>
             <label htmlFor='email'>Email</label>
             <input
+              className='h2 mb2'
               type='email'
               id='email'
               ref={(input)=> {_email = input;}} />
           </div>
-          <div>
+          <div className='flex flex-column'>
             <label htmlFor='password'>Password</label>
             <input
+              className='h2 mb2'
               type='password'
               id='password'
               ref={(input)=> {_password = input;}} />
           </div>
-          <div>
-            <button type='submit'>Login</button>
+          <div className='tc'>
+            <button className='w-20 br3 bg-blue white h2' type='submit'>Login</button>
             <div>
               { authError ? <p>{authError}</p> : null}
             </div>
           </div>
         </div>
       </form>
-    </div>
+    </section>
   );
 }
 
