@@ -68,18 +68,12 @@ class NewEntry extends React.Component {
   render() {
     if (!this.props.auth.uid) return <Redirect to='/signin' />
     return(
-      <section>
+      <section className='wrapper'>
         <form onSubmit={this.handleSubmit}>
           <fieldset className='bg-light-blue bn'>
             <h1 className='f1'> New Entry </h1>
             <div>
               <label htmlFor='entryName'>Entry Name</label>
-              <button
-                className='bg-dark-green h2 br2 b--black near-white fr'
-                type='button'
-                onClick={this.handleAddSpecimen}>
-                + Mushroom
-              </button>
             </div>
             <input
               className='w-50 br2 h2 mb3'
@@ -113,6 +107,12 @@ class NewEntry extends React.Component {
               ))}
             </div>
             <div className='flex flex-column'>
+              <button
+                className='bg-dark-green h2 br2 b--black near-white w-20 mb2'
+                type='button'
+                onClick={this.handleAddSpecimen}>
+                + Mushroom
+              </button>
               <label htmlFor='notes'>Notes</label>
               <textarea
                 className='w-50 br2'
@@ -121,15 +121,15 @@ class NewEntry extends React.Component {
                 onChange={this.handleChange} />
             </div>
           </fieldset>
+          <div className='mapContainer tc' >
+            <TestMap specimens={this.state.specimens}/>
+            <button
+              className='h2 bg-blue br2 mt2'
+              type='submit'>
+              Finalize Entry
+            </button>
+          </div>
         </form>
-        <div className='mapContainer tc' >
-          <TestMap specimens={this.state.specimens}/>
-          <button
-            className='h2 bg-blue br2 mt2'
-            type='submit'>
-            Finalize Entry
-          </button>
-        </div>
       </section>
     );
   }

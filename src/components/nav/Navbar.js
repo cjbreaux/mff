@@ -10,7 +10,7 @@ function Navbar(props) {
   const { auth } = props;
   const links = auth.uid ? <SignedInLinks /> : <SignedOutLinks />
   return (
-    <div className='navContainer'>
+    <div className='navContainer ba br4 bw1'>
       <Link to ='/'><i className="fas fa-home fa-3x blue ml2"></i></Link>
       { links }
     </div>

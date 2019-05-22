@@ -1,5 +1,4 @@
 import React from 'react';
-import './Entries.css';
 import EntrySummary from './EntrySummary';
 
 
