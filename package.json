@@ -46,6 +46,7 @@
     ]
   },
   "devDependencies": {
+    "@fortawesome/fontawesome-free": "^5.8.2",
     "tachyons": "^4.10.0"
   }
 }
