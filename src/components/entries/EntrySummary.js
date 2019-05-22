@@ -7,7 +7,7 @@ function EntrySummary({entry,setSelectedEntry}) {
 
   return(
     <div className='listCard' onClick={()=>setSelectedEntry(entry.entryId)}>
-      <h2>{entry.entryName}</h2>
+      <h2 className='f5'>{entry.entryName}</h2>
       <p>{entry.notes}</p>
       <p>{moment(entry.createdAt.toDate()).calendar()}</p>
     </div>
