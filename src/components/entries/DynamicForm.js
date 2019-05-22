@@ -70,20 +70,20 @@ class NewEntry extends React.Component {
         <form onSubmit={this.handleSubmit}>
           <h1 className='f1'> New Entry </h1>
           <fieldset className='flex'>
-            <div className=' flex flex-column'>
+            <div>
               <label htmlFor='entryName'>Entry Name</label>
-              <input
-                className='w-50 br2 h2'
-                type='text'
-                id='entryName'
-                onChange={this.handleChange} />
               <button
-                className='bg-dark-green h2 br2 b--black near-white'
+                className='bg-dark-green h2 br2 b--black near-white fr'
                 type='button'
                 onClick={this.handleAddSpecimen}>
                 + Mushroom
               </button>
             </div>
+            <input
+              className='w-50 br2 h2 mb3'
+              type='text'
+              id='entryName'
+              onChange={this.handleChange} />
             <label htmlFor='mushroom'>Mushroom</label>
               {this.state.specimens.map((specimen, index) => (
                 <div className='flex flex-column' key={index}>
@@ -93,17 +93,19 @@ class NewEntry extends React.Component {
                   type='text'
                   value={specimen.name}
                   onChange={this.handleSpecimenNameChange(index)} />
-                <input
-                  className='w-20 br2 h2'
-                  placeholder='Quantity'
-                  type='number'
-                  value={specimen.qty}
-                  onChange={this.handleSpecimenQty(index)} />
-                <button
-                  className='bg-dark-red h2 br2 b--black'
-                  type='button'
-                  onClick={this.handleRemoveSpecimen(index)} >
-                  X </button>
+                <div>
+                  <input
+                    className='w-20 br2 h2 mb3'
+                    placeholder='Quantity'
+                    type='number'
+                    value={specimen.qty}
+                    onChange={this.handleSpecimenQty(index)} />
+                  <button
+                    className='bg-dark-red h2 br2 b--black ml3'
+                    type='button'
+                    onClick={this.handleRemoveSpecimen(index)} >
+                    X </button>
+                </div>
                 </div>
               ))}
             <div className='flex flex-column'>
