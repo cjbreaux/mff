@@ -70,13 +70,13 @@ class NewEntry extends React.Component {
     return(
       <section className='wrapper'>
         <form onSubmit={this.handleSubmit}>
-          <fieldset className='bg-light-blue bn'>
+          <fieldset className='bg-moon-gray bn'>
             <h1 className='f1'> New Entry </h1>
             <div>
               <label htmlFor='entryName'>Entry Name</label>
             </div>
             <input
-              className='w-50 br2 h2 mb3'
+              className='w-50 br2 h2 mb3 '
               type='text'
               id='entryName'
               onChange={this.handleChange} />
@@ -108,7 +108,7 @@ class NewEntry extends React.Component {
             </div>
             <div className='flex flex-column'>
               <button
-                className='bg-dark-green h2 br2 b--black near-white w-30 mb2'
+                className='bg-dark-green h2 br2 b--black near-white w-30-l mb2 w-100-ns'
                 type='button'
                 onClick={this.handleAddSpecimen}>
                 Add Mushroom
@@ -124,7 +124,7 @@ class NewEntry extends React.Component {
           <div className='mapContainer tc' >
             <TestMap specimens={this.state.specimens}/>
             <button
-              className='h2 bg-blue br2 mt2'
+              className='h2 bg-blue br2 mt2 w-40'
               type='submit'>
               Finalize Entry
             </button>

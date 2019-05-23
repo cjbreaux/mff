@@ -21,7 +21,7 @@ function NewEntryDetails({entries,currentlySelectedEntry, entry}) {
     <div className='ba bw1 br4 mt2 pl3 bg-moon-gray'>
       {entryToDisplay ? <h1>{entryToDisplay.entryName}</h1> : <h1 className='h5 tc'>Select an Entry</h1>}
       {entryToDisplay ? <p>{moment(entryToDisplay.createdAt.toDate()).calendar()}</p> : null}
-      {entryToDisplay ? <DoughnutExample entryData={entryToDisplay}  /> : null}
+      {entryToDisplay ? <DoughnutExample id='map' entryData={entryToDisplay}  /> : null}
       {entryToDisplay ? <EntryMap lat={entryToDisplay.lat} lng={entryToDisplay.lng} mapMarkers={entryToDisplay.mapMarkers} entry={entryToDisplay} /> : null}
       {entryToDisplay ? <h2>Notes</h2> : null}
       {entryToDisplay ? <p>{entryToDisplay.notes}</p> : null}

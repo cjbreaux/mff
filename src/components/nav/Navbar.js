@@ -11,7 +11,7 @@ function Navbar(props) {
   const links = auth.uid ? <SignedInLinks /> : <SignedOutLinks />
   return (
     <div className='navContainer ba br4 bw1'>
-      <Link to ='/'><i className="fas fa-home fa-3x blue ml2"></i></Link>
+      <Link to ='/'><i className="fas fa-home fa-3x black ml2"></i></Link>
       { links }
     </div>
   );

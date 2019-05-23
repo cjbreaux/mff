@@ -3,8 +3,6 @@ import { Doughnut } from 'react-chartjs-2';
 import 'chartjs-plugin-colorschemes';
 // Change chart settings here, not in data object
 import { defaults } from 'react-chartjs-2';
-import Chart from 'chart.js';
-import ChartDataLabels from 'chartjs-plugin-datalabels';
 defaults.global.defaultFontColor = 'black';
 defaults.global.legend.position = 'none';
 defaults.global.defaultFontSize = 14;
