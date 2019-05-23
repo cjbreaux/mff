@@ -1,3 +1,7 @@
+body {
+  background-color: #FFFCEB
+}
+
 .dashboard {
   display: grid;
   grid-template-columns: 1fr 2fr;
@@ -5,7 +9,6 @@
   max-width: 1200px;
   margin: auto;
   width: 95vw;
-
 }
 
 .leftPanel {
@@ -20,7 +23,7 @@
 
 @media only screen and (max-width: 600px) {
   body {
-    background-color: lightblue;
+    background-color: #FFFCEB
   }
  .rightPanel {
    grid-column: 1 / -1;

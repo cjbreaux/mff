@@ -19,7 +19,8 @@ function SignIn(props) {
   return(
     <section className='wrapper'>
       <form onSubmit={handleSubmit}>
-        <h1 className='f1'> Sign In </h1>
+        <h1 className='f2'> Mushroom Forager's Friend </h1>
+        <h2 className='f3'> Sign In </h2>
         <div>
           <div className='flex flex-column'>
             <label htmlFor='email'>Email</label>
