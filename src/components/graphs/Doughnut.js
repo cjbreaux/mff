@@ -6,8 +6,9 @@ import { defaults } from 'react-chartjs-2';
 import Chart from 'chart.js';
 import ChartDataLabels from 'chartjs-plugin-datalabels';
 defaults.global.defaultFontColor = 'black';
-defaults.global.legend.position = 'left';
+defaults.global.legend.position = 'none';
 defaults.global.defaultFontSize = 14;
+// defaults.global.showTooltips = false;
 const createReactClass = require('create-react-class');
 
 export default createReactClass({
@@ -23,7 +24,7 @@ export default createReactClass({
     		data: specimens.map(specimen => specimen.qty),
         datalabels: {
           formatter: function(value, context) {
-            return context.chart.data.labels[context.dataIndex]
+            return context.chart.data.labels[context.dataIndex] + ' ' + value
           }
         }
     	}],
