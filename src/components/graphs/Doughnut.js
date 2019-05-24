@@ -9,6 +9,7 @@ defaults.global.defaultFontColor = 'black';
 defaults.global.legend.position = 'none';
 defaults.global.defaultFontSize = 14;
 defaults.global.tooltips = false;
+// defaults.global.maintainAspectRatio = false;
 // defaults.global.showTooltips = false;
 const createReactClass = require('create-react-class');
 
