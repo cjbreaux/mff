@@ -10,15 +10,14 @@ function Navbar(props) {
   const { auth } = props;
   const links = auth.uid ? <SignedInLinks /> : <SignedOutLinks />
   return (
-    <div className='navContainer'>
-      <Link to ='/'>Home</Link>
+    <div className='navContainer ba br4 bw1'>
+      <Link to ='/'><i className="fas fa-home fa-3x black ml2"></i></Link>
       { links }
     </div>
   );
 }
 
 const mapStateToProps = state => {
-  console.log(state)
   return {
     auth: state.firebase.auth
   }

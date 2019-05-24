@@ -21,47 +21,51 @@ function SignUp(props) {
   }
   if (auth.uid) return <Redirect to='/' />
   return(
-    <div>
+    <section className='wrapper'>
       <form onSubmit={handleSubmit}>
-        <h5> Sign In </h5>
-        <div className='flex'>
-        <div>
+        <h1 className='f1'> Sign Up </h1>
+        <div className='flex flex-column'>
+        <div className='flex flex-column'>
           <label htmlFor='fname'>First Name</label>
           <input
+            className='h2 mb2'
             type='text'
             id='fname'
             ref={(input)=> {_fname = input;}} />
         </div>
-        <div>
+        <div className='flex flex-column'>
           <label htmlFor='lname'>Last Name</label>
           <input
+            className='h2 mb2'
             type='text'
             id='lname'
             ref={(input)=> {_lname = input;}} />
         </div>
-        <div>
+        <div className='flex flex-column'>
           <label htmlFor='email'>Email</label>
           <input
+            className='h2 mb2'
             type='email'
             id='email'
             ref={(input)=> {_email = input;}} />
         </div>
-        <div>
+        <div className='flex flex-column'>
           <label htmlFor='password'>Password</label>
           <input
+            className='h2 mb2'
             type='password'
             id='password'
             ref={(input)=> {_password = input;}} />
         </div>
-        <div>
-          <button type='submit'>Login</button>
+        <div className='tc'>
+          <button className='w-20 br3 bg-blue white h2' type='submit'>Login</button>
         </div>
         <div>
           {authError ? <p>{ authError }</p> : null}
         </div>
         </div>
       </form>
-    </div>
+    </section>
   );
 }
 

@@ -6,8 +6,8 @@ import {signOut} from './../../actions/authActions';
 function SignedInLinks(props) {
   return(
     <div>
-      <NavLink to='/newentry'>New Entry</NavLink>
-      <p onClick={props.signOut}>Log Out</p>
+      <NavLink to='/newentry'><i className="fas fa-folder-plus fa-3x black"></i></NavLink>
+      <i className="fas fa-sign-out-alt fa-3x ml5 mr2" onClick={props.signOut}></i>
     </div>
   );
 }

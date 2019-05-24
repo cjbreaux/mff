@@ -1,17 +1,38 @@
+body {
+  background-color: #FFFCEB
+}
+
 .dashboard {
   display: grid;
   grid-template-columns: 1fr 2fr;
   grid-gap: 2%;
+  max-width: 1200px;
+  margin: auto;
+  width: 95vw;
 }
 
 .leftPanel {
   grid-column: 1 / 2;
   height: 100vh;
-  background-color: yellow;
 }
 
 .rightPanel {
   grid-column: 2 / 4;
   height: 100vh;
-  background-color: green;
+}
+
+@media only screen and (max-width: 600px) {
+  body {
+    background-color: #FFFCEB
+  }
+ .rightPanel {
+   grid-column: 1 / -1;
+   grid-row-start: 1;
+   height: auto;
+ }
+ .leftPanel {
+   grid-column: 1 / -1;
+   grid-row-start: 2;
+   height: auto;
+ }
 }

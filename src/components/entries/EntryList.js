@@ -1,20 +1,28 @@
 import React from 'react';
-import './Entries.css';
 import EntrySummary from './EntrySummary';
-import {Link} from 'react-router-dom';
 
-function EntryList({entries}) {
-  return(
-    <div className='listContainer'>
-      {entries && entries.map(entry => {
+
+//flashing incorrect text in bar on new user creation
+
+function EntryList({entries, auth}) {
+  if (entries) {
+    if (entries.length === 0) {
+      let noEntry = {entryName: 'No Entry to Display', notes: 'Click the folder icon to add an entry', createdAt: null}
+      return <EntrySummary entry={noEntry} />
+    } else {
+      return <div>
+      {entries && entries[0].entries.map((entry, index) => {
         return(
-          <Link to={'/entry/' + entry.id} key={entry.id}>
-            <EntrySummary entry={entry}  />
-          </Link>
+
+          <EntrySummary entry={entry} key={index} />
+
         )
       })}
-    </div>
-  );
+      </div>
+    }
+  } else {
+    return <p> ...loading </p>
+  }
 }
 
 export default EntryList;

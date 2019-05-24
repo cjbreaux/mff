@@ -1,22 +1,29 @@
-import React, { Component} from 'react';
+import React, { Component } from 'react';
 import './Dashboard.css';
-import {connect} from 'react-redux';
-import {firestoreConnect} from 'react-redux-firebase';
-import {compose} from 'redux';
-import {Redirect} from 'react-router-dom'
+import { connect } from 'react-redux';
+import { firestoreConnect } from 'react-redux-firebase';
+import { compose } from 'redux';
+import { Redirect } from 'react-router-dom'
 
 import EntryList from './../entries/EntryList';
+import NewEntryDetails from './../entries/NewEntryDetails';
+
+
+
 
 class Dashboard extends Component {
   render() {
     const {entries, auth} = this.props;
     if (!auth.uid) return <Redirect to='/signin' />
+
     return (
       <div className='dashboard'>
         <div className='leftPanel'>
-          <EntryList entries={entries} />
+          <EntryList entries={entries} auth={auth} />
         </div>
-        <div className='rightPanel'></div>
+        <div className='rightPanel'>
+          <NewEntryDetails  />
+        </div>
       </div>
     );
   }
@@ -29,9 +36,15 @@ const mapStateToProps = state => {
   }
 }
 
+
+
+//would like a way to pass in doc: `${auth.uid}` or equivalent to only pull the users doc instead of the entire list
+
 export default compose(
   connect(mapStateToProps),
-  firestoreConnect([
-    {collection: 'entries'}
-  ])
+  firestoreConnect(props => {
+    return [
+      {collection: 'entries', doc: props.auth.uid}
+    ]
+  }),
 )(Dashboard);

@@ -1,8 +1,8 @@
 import React from 'react';
 import './styles.scss';
-import {connect} from 'react-redux';
-import {signIn} from './../../actions/authActions';
-import {Redirect} from 'react-router-dom';
+import { connect } from 'react-redux';
+import { signIn } from './../../actions/authActions';
+import { Redirect } from 'react-router-dom';
 
 function SignIn(props) {
   const {signIn, authError, auth} = props
@@ -12,38 +12,41 @@ function SignIn(props) {
   if (auth.uid) return <Redirect to='/' />
   function handleSubmit(e) {
     e.preventDefault();
-    signIn({email: _email.value, password: _password.value})
+    signIn({email: _email.value, password: _password.value});
     // _email = '';
     // _password = '';
   }
   return(
-    <div>
+    <section className='wrapper'>
       <form onSubmit={handleSubmit}>
-        <h5> Sign In </h5>
-        <div className='flex'>
-          <div>
+        <h1 className='f2'> Mushroom Forager's Friend </h1>
+        <h2 className='f3'> Sign In </h2>
+        <div>
+          <div className='flex flex-column'>
             <label htmlFor='email'>Email</label>
             <input
+              className='h2 mb2'
               type='email'
               id='email'
               ref={(input)=> {_email = input;}} />
           </div>
-          <div>
+          <div className='flex flex-column'>
             <label htmlFor='password'>Password</label>
             <input
+              className='h2 mb2'
               type='password'
               id='password'
               ref={(input)=> {_password = input;}} />
           </div>
-          <div>
-            <button type='submit'>Login</button>
+          <div className='tc'>
+            <button className='w-20 br3 bg-blue white h2' type='submit'>Login</button>
             <div>
               { authError ? <p>{authError}</p> : null}
             </div>
           </div>
         </div>
       </form>
-    </div>
+    </section>
   );
 }
 
