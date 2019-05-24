@@ -1,11 +1,14 @@
 import React from 'react';
 import { Doughnut } from 'react-chartjs-2';
 import 'chartjs-plugin-colorschemes';
+import Chart from 'chart.js';
+import ChartDataLabels from 'chartjs-plugin-datalabels';
 // Change chart settings here, not in data object
 import { defaults } from 'react-chartjs-2';
 defaults.global.defaultFontColor = 'black';
 defaults.global.legend.position = 'none';
 defaults.global.defaultFontSize = 14;
+defaults.global.tooltips = false;
 // defaults.global.showTooltips = false;
 const createReactClass = require('create-react-class');
 
