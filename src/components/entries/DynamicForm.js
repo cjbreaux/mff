@@ -22,9 +22,13 @@ class NewEntry extends React.Component {
     if (Object.keys(mapMarkers).length === 0 && mapMarkers.constructor === Object) {
       createEntry({...this.state, lat: location.latitude, lng: location.longitude, mapMarkers: []});
     } else {
-      createEntry({...this.state, lat: location.latitude, lng: location.longitude, mapMarkers });
+        if (mapMarkers.length !== this.state.specimens.length) {
+          alert('Please removed unused Map Markers')
+        } else {
+          createEntry({...this.state, lat: location.latitude, lng: location.longitude, mapMarkers });
+          history.push('/');
+      }
     }
-    history.push('/');
   }
 
   handleChange = e => {

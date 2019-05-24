@@ -29,7 +29,8 @@ This a web app that allows mushroom hunters to keep track of their finds (specie
 ### Known Bugs
 * Issue placing map markers correctly depending on number of specimens entered into the form [BREAKING]
 * Marker remains on screen even if specimen is removed. [BREAKING]
-* Removing entry before placing marker causes an error. [BREAKING]
+ (added alert to prevent form submission)
+
 
 ### Technologies and Resources
 
