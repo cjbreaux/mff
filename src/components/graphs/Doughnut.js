@@ -40,7 +40,11 @@ export default createReactClass({
     };
     return (
       <div>
-        <Doughnut data={data} />
+        <Doughnut
+        data={data}
+        width={300}
+        height={300}
+        options={{maintainAspectRatio:false}} />
       </div>
     );
   }

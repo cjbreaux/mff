@@ -26,7 +26,7 @@ class TestMap extends Component {
         <Map
           className='mt3'
           center={position}
-          style={{ width: '100%', height: '30vh' }}
+          style={{ width: '100%', height: '40vh' }}
           zoom={this.state.zoom}>
           <TileLayer
             attribution='&amp;copy <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
