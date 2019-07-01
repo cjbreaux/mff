@@ -26,6 +26,19 @@ export const signOut = () => {
   }
 }
 
+export const anonLogIn = () => {
+  return (dispatch, getState, {getFirebase}) => {
+    const firebase = getFirebase();
+
+    firebase.auth().signInAnonymously().then(()=> {
+      dispatch({type: type.LOGIN_SUCCESS});
+    }).catch((err) => {
+      dispatch({type: type.LOGIN_ERROR, err});
+    })
+  }
+  console.log("anonlogin")
+}
+
 export const signUp = (newUser) => {
   return (dispatch, getState, {getFirebase, getFirestore}) => {
     const firebase = getFirebase();
