@@ -52,7 +52,7 @@ function SignIn(props) {
         </div>
       </form>
       <div className="tc">
-        <button className='w-20 br3 bg-green white h2'onClick={handleClick}>Sign-in as Guest</button>
+        <button className='w-20 br3 bg-green white h2'onClick={handleClick}>Guest</button>
       </div>
     </section>
   );

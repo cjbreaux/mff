@@ -27,10 +27,16 @@ export const signOut = () => {
 }
 
 export const anonLogIn = () => {
-  return (dispatch, getState, {getFirebase}) => {
+  return (dispatch, getState, {getFirebase, getFirestore}) => {
     const firebase = getFirebase();
+    const fireStore = getFirestore();
 
-    firebase.auth().signInAnonymously().then(()=> {
+    firebase.auth().signInAnonymously().then((resp) => {
+      return fireStore.collection('users').doc(resp.user.uid).set({
+        firstName: 'Guest',
+        lastName: 'User'
+      })
+    }).then(()=> {
       dispatch({type: type.LOGIN_SUCCESS});
     }).catch((err) => {
       dispatch({type: type.LOGIN_ERROR, err});
