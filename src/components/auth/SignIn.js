@@ -1,7 +1,7 @@
 import React from 'react';
 import './styles.scss';
 import { connect } from 'react-redux';
-import { signIn } from './../../actions/authActions';
+import { signIn, anonLogIn } from './../../actions/authActions';
 import { Redirect } from 'react-router-dom';
 
 function SignIn(props) {
@@ -16,6 +16,11 @@ function SignIn(props) {
     // _email = '';
     // _password = '';
   }
+  function handleClick() {
+    const {anonLogIn, authError, auth} = props;
+    anonLogIn();
+  }
+
   return(
     <section className='wrapper'>
       <form onSubmit={handleSubmit}>
@@ -46,6 +51,9 @@ function SignIn(props) {
           </div>
         </div>
       </form>
+      <div className="tc">
+        <button className='w-20 br3 bg-green white h2'onClick={handleClick}>Sign-in as Guest</button>
+      </div>
     </section>
   );
 }
@@ -58,7 +66,8 @@ const mapStateToProps = state => {
 }
 const mapDispatchToProps = (dispatch) => {
   return {
-    signIn:(creds) => dispatch(signIn(creds))
+    signIn:(creds) => dispatch(signIn(creds)),
+    anonLogIn:() => dispatch(anonLogIn())
   }
 }
 
