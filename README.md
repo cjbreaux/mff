@@ -10,6 +10,7 @@ Chris Breaux
 ### Description
 
 This a web app that allows mushroom hunters to keep track of their finds (species and quantity) as well as their locations.
+https://foragers-friend.firebaseapp.com/signin
 
 ![Screenshot of Mushroom Forager's Friend](src/assets/screen1.jpg)
 
