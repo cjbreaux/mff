@@ -72,7 +72,6 @@ class NewEntry extends React.Component {
         mapMarkers: this.props.mapMarkers.filter((s, pos) => index !== pos)
       });
     }
-    console.log(this.props);
   }
 
   render() {
@@ -134,7 +133,7 @@ class NewEntry extends React.Component {
           <div className='mapContainer tc' >
             <TestMap specimens={this.state.specimens}/>
             <button
-              className='h2 bg-blue br2 mt2 w-40'
+              className='h2 bg-blue white br2 mt2 w-40'
               type='submit'>
               Finalize Entry
             </button>
