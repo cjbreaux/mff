@@ -9,7 +9,7 @@ const authReducer = (state = initialState, action) => {
     case type.LOGIN_ERROR:
     return {
       ...state,
-      authError: 'there was an error'
+      authError: 'There was an error'
     }
     case type.LOGIN_SUCCESS:
     return {

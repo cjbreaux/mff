@@ -20,7 +20,6 @@ class TestMap extends Component {
   render() {
     const {lat, lng, mapMarkers, entry} = this.props;
     if (lat && lng) {
-      console.log(mapMarkers)
       const position = [mapMarkers[0].lat, mapMarkers[0].lng]
       return (
         <Map

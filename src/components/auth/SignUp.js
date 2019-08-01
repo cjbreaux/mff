@@ -59,9 +59,7 @@ function SignUp(props) {
         </div>
         <div className='tc'>
           <button className='w-20 br3 bg-blue white h2' type='submit'>Login</button>
-        </div>
-        <div>
-          {authError ? <p>{ authError }</p> : null}
+          {authError ? <p className="error">{ authError }</p> : null}
         </div>
         </div>
       </form>

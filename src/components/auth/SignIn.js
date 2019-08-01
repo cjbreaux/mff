@@ -45,14 +45,12 @@ function SignIn(props) {
           </div>
           <div className='tc'>
             <button className='w-20 br3 bg-blue white h2' type='submit'>Login</button>
-            <div>
-              { authError ? <p>{authError}</p> : null}
-            </div>
           </div>
         </div>
       </form>
       <div className="tc">
         <button className='w-20 br3 bg-green white h2'onClick={handleClick}>Guest</button>
+        { authError ? <p className="error">{authError}</p> : null}
       </div>
     </section>
   );
