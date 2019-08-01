@@ -1,5 +1,5 @@
-body {
-  background-color: #FFFCEB
+html {
+  background-color: #FFFCEB;
 }
 
 .dashboard {
@@ -9,6 +9,7 @@ body {
   max-width: 1200px;
   margin: auto;
   width: 95vw;
+
 }
 
 .leftPanel {
@@ -22,8 +23,8 @@ body {
 }
 
 @media only screen and (max-width: 600px) {
-  body {
-    background-color: #FFFCEB
+  html {
+    background-color: #FFFCEB;
   }
  .rightPanel {
    grid-column: 1 / -1;

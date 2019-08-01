@@ -26,7 +26,7 @@ export default createReactClass({
     		data: specimens.map(specimen => specimen.qty),
         datalabels: {
           formatter: function(value, context) {
-            return context.chart.data.labels[context.dataIndex] + ' ' + value
+            return context.chart.data.labels[context.dataIndex] + ' - ' + value
           }
         }
     	}],

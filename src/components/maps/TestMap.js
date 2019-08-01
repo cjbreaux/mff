@@ -22,8 +22,6 @@ class TestMap extends Component {
   addMarker = (e) => {
     const { markers } = this.state
     const { specimens } = this.props
-    console.log(markers.length + ' markers')
-    console.log(specimens.length + ' specimens')
     while(markers.length < specimens.length) {
       markers.push(e.latlng);
       this.setState({ markers });

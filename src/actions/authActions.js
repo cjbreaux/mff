@@ -42,7 +42,6 @@ export const anonLogIn = () => {
       dispatch({type: type.LOGIN_ERROR, err});
     })
   }
-  console.log("anonlogin")
 }
 
 export const signUp = (newUser) => {
